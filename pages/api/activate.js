@@ -1,5 +1,6 @@
 // Activation API endpoint
 // This validates activation codes and marks them as used
+import { validateCode } from '../../lib/supabase';
 
 export default async function handler(req, res) {
   // Only allow POST requests
@@ -27,39 +28,21 @@ export default async function handler(req, res) {
   }
 
   try {
-    // TODO: Connect to Vercel KV database
-    // For now, return placeholder response
+    // Validate code with Supabase
+    const result = await validateCode(code, entryTimestamp, deviceId);
     
-    // Check if code exists and is unused
-    // const existing = await kv.get(`code:${code}`);
-    
-    // if (existing && existing.used) {
-    //   return res.status(409).json({
-    //     success: false,
-    //     error: 'Code already activated'
-    //   });
-    // }
-    
-    // Mark code as used
-    // await kv.set(`code:${code}`, {
-    //   entryTimestamp,
-    //   validatedAt: Date.now(),
-    //   deviceId,
-    //   used: true
-    // });
-    
-    // Decode duration from code (placeholder)
-    const durationDays = 30; // TODO: Decode from code
-    const expiryDate = Date.now() + (durationDays * 24 * 60 * 60 * 1000);
-    
-    // Generate permanent token
-    const token = generateToken(code, deviceId);
+    if (!result.success) {
+      return res.status(409).json({
+        success: false,
+        error: result.error
+      });
+    }
     
     return res.status(200).json({
       success: true,
-      token,
-      expiryDate,
-      durationDays
+      token: result.token,
+      expiryDate: result.expiryDate,
+      durationDays: result.durationDays
     });
     
   } catch (error) {
@@ -69,10 +52,4 @@ export default async function handler(req, res) {
       error: 'Internal server error'
     });
   }
-}
-
-function generateToken(code, deviceId) {
-  // Simple token generation (TODO: Use proper JWT or similar)
-  const data = `${code}:${deviceId}:${Date.now()}`;
-  return Buffer.from(data).toString('base64');
 }

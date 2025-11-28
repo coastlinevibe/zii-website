@@ -1,134 +1,436 @@
 .main {
   min-height: 100vh;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-  padding: 4rem 2rem;
+  background: #f8f9fa;
 }
 
-.container {
+/* Header */
+.header {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.headerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #667eea;
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav a {
+  color: #1a1a2e;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #667eea;
+}
+
+/* Download Hero */
+.downloadHero {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.downloadContent {
   max-width: 800px;
   margin: 0 auto;
 }
 
-.container h1 {
-  text-align: center;
-  color: white;
-  font-size: 3rem;
-  margin-bottom: 3rem;
-}
-
-.downloadCard {
-  background: white;
-  border-radius: 20px;
-  padding: 3rem;
-  text-align: center;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-}
-
-.icon {
-  font-size: 5rem;
+.downloadHero h1 {
+  font-size: 3.5rem;
+  font-weight: 900;
   margin-bottom: 1rem;
 }
 
-.downloadCard h2 {
-  font-size: 2rem;
-  color: #1a1a2e;
-  margin-bottom: 0.5rem;
+.subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 3rem;
+  opacity: 0.9;
 }
 
-.version {
-  color: #667eea;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.size {
-  color: #666;
-  margin-bottom: 2rem;
+.downloadButtons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
 }
 
 .downloadButton {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2.5rem;
+  background: white;
+  color: #1a1a2e;
+  border-radius: 15px;
+  text-decoration: none;
+  transition: all 0.3s;
+  min-width: 250px;
+}
+
+.downloadButton:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+.downloadButton.comingSoon {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.downloadButton.comingSoon:hover {
+  transform: none;
+}
+
+.buttonIcon {
+  font-size: 3rem;
+}
+
+.buttonText {
+  text-align: left;
+}
+
+.buttonTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.buttonSubtitle {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.stats {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.3);
+}
+
+.stat {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #00ff88;
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* Installation Guide */
+.installGuide {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.installGuide h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a2e;
+}
+
+.steps {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.step {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+  align-items: flex-start;
+}
+
+.stepNumber {
+  width: 60px;
+  height: 60px;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+
+.stepContent h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+
+.stepContent p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Requirements */
+.requirements {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.requirements h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a2e;
+}
+
+.reqGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.reqCard {
+  padding: 2rem;
+  background: white;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.reqCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.reqIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.reqCard h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #667eea;
+}
+
+.reqCard p {
+  color: #666;
+}
+
+/* Features */
+.features {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.features h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a2e;
+}
+
+.featureList {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.featureItem {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.featureItem:hover {
+  background: #e9ecef;
+  transform: translateX(10px);
+}
+
+.checkmark {
+  font-size: 2rem;
+  color: #00ff88;
+  flex-shrink: 0;
+}
+
+.featureItem h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.3rem;
+  color: #1a1a2e;
+}
+
+.featureItem p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq {
+  padding: 5rem 2rem;
+  background: #f8f9fa;
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a2e;
+}
+
+.faqList {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+}
+
+.faqItem h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+  color: #667eea;
+}
+
+.faqItem p {
+  color: #666;
+  line-height: 1.7;
+}
+
+/* CTA */
+.cta {
+  padding: 5rem 2rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+}
+
+.cta h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.ctaButton {
   display: inline-block;
   padding: 1.2rem 3rem;
   background: #00ff88;
   color: #1a1a2e;
   border-radius: 50px;
   text-decoration: none;
+  font-size: 1.3rem;
   font-weight: 700;
-  font-size: 1.2rem;
-  transition: all 0.2s;
-  margin-bottom: 3rem;
+  transition: all 0.3s;
 }
 
-.downloadButton:hover {
+.ctaButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(0,255,136,0.3);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
 }
 
-.instructions, .requirements {
-  text-align: left;
-  margin-top: 2rem;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 10px;
+.ctaSubtext {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  opacity: 0.8;
 }
 
-.instructions h3, .requirements h3 {
-  color: #667eea;
-  margin-bottom: 1rem;
-}
-
-.instructions ol, .requirements ul {
-  color: #666;
-  line-height: 1.8;
-  padding-left: 1.5rem;
-}
-
-.needCode {
-  text-align: center;
-  margin-top: 2rem;
-  padding: 2rem;
-  background: rgba(255,255,255,0.1);
-  border-radius: 15px;
-}
-
-.needCode p {
-  color: white;
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.buyLink {
+.ctaSubtext a {
   color: #00ff88;
-  font-weight: 700;
-  font-size: 1.2rem;
-  text-decoration: none;
-}
-
-.buyLink:hover {
   text-decoration: underline;
 }
 
-.backLink {
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.backLink a {
+/* Footer */
+.footer {
+  background: #1a1a2e;
   color: white;
-  text-decoration: none;
-  font-size: 1.1rem;
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
-.backLink a:hover {
+.footerLinks {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.footerLinks a {
+  color: #00ff88;
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
   text-decoration: underline;
 }
 
+/* Responsive */
 @media (max-width: 768px) {
-  .container h1 {
-    font-size: 2rem;
+  .downloadHero h1 {
+    font-size: 2.5rem;
   }
   
-  .downloadCard {
-    padding: 2rem 1.5rem;
+  .downloadButtons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .downloadButton {
+    width: 100%;
+    max-width: 350px;
+  }
+  
+  .stats {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .nav {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+  
+  .step {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
 }

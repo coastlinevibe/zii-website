@@ -1,0 +1,915 @@
+/* Admin Login */
+.loginContainer {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+}
+
+.loginCard {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.loginCard h1 {
+  text-align: center;
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-weight: 600;
+  color: #1a1a2e;
+}
+
+.formGroup input {
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.formGroup input:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
+.error {
+  background: #ffebee;
+  color: #c62828;
+  padding: 0.8rem;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.loginButton {
+  padding: 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.loginButton:hover:not(:disabled) {
+  background: #764ba2;
+  transform: translateY(-2px);
+}
+
+.loginButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.loginFooter {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.loginFooter a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+/* Dashboard */
+.dashboard {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.header {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 1rem 2rem;
+}
+
+.headerContent {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  color: #1a1a2e;
+  font-size: 1.5rem;
+}
+
+.logoutButton {
+  padding: 0.6rem 1.5rem;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.logoutButton:hover {
+  background: #cc0000;
+}
+
+.nav {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0 2rem;
+  display: flex;
+  gap: 0.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.nav button {
+  padding: 1rem 1.5rem;
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav button:hover {
+  color: #667eea;
+}
+
+.nav button.active {
+  color: #667eea;
+  border-bottom-color: #667eea;
+}
+
+.content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Generate Tab */
+.generateTab h2 {
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.form {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.tierSelector {
+  margin-bottom: 2rem;
+}
+
+.tierSelector label {
+  display: block;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.tierGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+}
+
+.tierCard {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border: 3px solid transparent;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.tierCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.tierCard.selected {
+  border-color: #00ff88;
+  background: #f0fff8;
+}
+
+.tierPrice {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.tierLabel {
+  color: #666;
+  font-weight: 600;
+}
+
+.generateButton {
+  width: 100%;
+  padding: 1.2rem;
+  background: #00ff88;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.generateButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0,255,136,0.3);
+}
+
+.generateButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.result {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.successBox h3,
+.errorBox h3 {
+  margin-bottom: 1rem;
+}
+
+.resultStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.stat {
+  text-align: center;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+}
+
+.statLabel {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.statValue {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #667eea;
+}
+
+.downloadButtons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.downloadButtons button {
+  flex: 1;
+  padding: 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.downloadButtons button:hover {
+  background: #764ba2;
+}
+
+/* Batches Tab */
+.batchesTab h2 {
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.batchList {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.batchCard {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.batchHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.batchHeader h3 {
+  color: #1a1a2e;
+}
+
+.batchDate {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.batchStats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1.5rem;
+}
+
+.batchStat {
+  text-align: center;
+  padding: 1rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.batchStat span {
+  display: block;
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.batchStat strong {
+  display: block;
+  font-size: 1.5rem;
+  color: #667eea;
+}
+
+/* Analytics Tab */
+.analyticsTab h2 {
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.statCard {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.statIcon {
+  font-size: 3rem;
+}
+
+.statInfo {
+  flex: 1;
+}
+
+.statCard .statValue {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #667eea;
+  display: block;
+}
+
+.statCard .statLabel {
+  color: #666;
+  font-size: 1rem;
+}
+
+.chartPlaceholder {
+  background: white;
+  border-radius: 15px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #666;
+}
+
+/* Partners Tab */
+.partnersTab h2 {
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.comingSoon {
+  background: white;
+  border-radius: 15px;
+  padding: 3rem;
+  text-align: center;
+}
+
+.comingSoon h3 {
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+}
+
+.comingSoon ul {
+  text-align: left;
+  max-width: 400px;
+  margin: 2rem auto;
+  color: #666;
+  line-height: 2;
+}
+
+/* Common */
+.loading {
+  text-align: center;
+  padding: 4rem;
+  color: #666;
+}
+
+.emptyState {
+  background: white;
+  border-radius: 15px;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: #666;
+}
+
+.errorBox {
+  background: #ffebee;
+  border-left: 4px solid #c62828;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.errorBox h3 {
+  color: #c62828;
+}
+
+@media (max-width: 768px) {
+  .nav {
+    overflow-x: auto;
+  }
+  
+  .content {
+    padding: 1rem;
+  }
+  
+  .formRow {
+    grid-template-columns: 1fr;
+  }
+  
+  .downloadButtons {
+    flex-direction: column;
+  }
+}
+
+/* Enhanced Batch Management */
+.batchesHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.backButton {
+  padding: 0.6rem 1.5rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backButton:hover {
+  background: #764ba2;
+}
+
+.batchRevenue {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e0e0e0;
+}
+
+.revenueStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.revenueStat span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.revenueStat strong {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+}
+
+.revenueStat strong.earned {
+  color: #00C853;
+}
+
+.batchStat strong.used {
+  color: #00C853;
+}
+
+.batchStat strong.available {
+  color: #667eea;
+}
+
+.batchStat strong.revoked {
+  color: #ff4444;
+}
+
+.viewCodesButton {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.8rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.viewCodesButton:hover {
+  background: #764ba2;
+}
+
+/* Codes Table */
+.codesView {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+}
+
+.codesView h3 {
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+}
+
+.codesTable {
+  overflow-x: auto;
+}
+
+.codesTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.codesTable th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a2e;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.codesTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.codeCell {
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.deviceId {
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.statusBadge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.statusBadge.available {
+  background: #e3f2fd;
+  color: #1976d2;
+}
+
+.statusBadge.used {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.statusBadge.revoked {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.revokeButton {
+  padding: 0.4rem 1rem;
+  background: #ff4444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.revokeButton:hover {
+  background: #cc0000;
+}
+
+/* Enhanced Analytics */
+.revenueSection,
+.tierSection,
+.activationsSection {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.revenueSection h3,
+.tierSection h3,
+.activationsSection h3 {
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+}
+
+.revenueGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.revenueCard {
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.revenueLabel {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.revenueValue {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.revenueSubtext {
+  color: #999;
+  font-size: 0.85rem;
+}
+
+.tierGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.tierCard {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.tierHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.tierName {
+  font-weight: 700;
+  color: #1a1a2e;
+  font-size: 1.1rem;
+}
+
+.tierPrice {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #667eea;
+}
+
+.tierStats {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.tierStat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+}
+
+.tierStat span {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.tierStat strong {
+  color: #1a1a2e;
+  font-size: 1rem;
+}
+
+.activationsTable {
+  overflow-x: auto;
+}
+
+.activationsTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.activationsTable th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a2e;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.activationsTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.statSubtext {
+  color: #999;
+  font-size: 0.85rem;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 768px) {
+  .revenueGrid,
+  .tierGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .codesTable,
+  .activationsTable {
+    font-size: 0.85rem;
+  }
+  
+  .codesTable td,
+  .activationsTable td {
+    padding: 0.5rem;
+  }
+}
+
+/* Fraud Detection Tab */
+.fraudTab h2 {
+  color: #1a1a2e;
+  margin-bottom: 2rem;
+}
+
+.bannedSection,
+.attemptsSection {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.bannedSection h3,
+.attemptsSection h3 {
+  color: #1a1a2e;
+  margin-bottom: 1.5rem;
+}
+
+.bannedTable,
+.attemptsTable {
+  overflow-x: auto;
+}
+
+.bannedTable table,
+.attemptsTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.bannedTable th,
+.attemptsTable th {
+  background: #f8f9fa;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a2e;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.bannedTable td,
+.attemptsTable td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.unbanButton {
+  padding: 0.4rem 1rem;
+  background: #00C853;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.unbanButton:hover {
+  background: #00A843;
+}
+
+.reasonBadge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.reasonBadge.already_used {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.reasonBadge.not_found {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.reasonBadge.revoked {
+  background: #f3e5f5;
+  color: #6a1b9a;
+}

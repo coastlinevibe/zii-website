@@ -8,7 +8,7 @@ export default function Buy() {
   const [activationCode, setActivationCode] = useState(null);
 
   const tiers = {
-    '5': { days: 5, price: 5, label: '5 Days' },
+    '10': { days: 10, price: 5, label: '10 Days' },
     '30': { days: 30, price: 15, label: '30 Days' },
     '90': { days: 90, price: 50, label: '90 Days' },
     '365': { days: 365, price: 150, label: '365 Days' }
@@ -61,7 +61,7 @@ export default function Buy() {
                   For R5 or other payment methods, contact us on WhatsApp.
                 </p>
                 
-                {selectedTier === '5' ? (
+                {selectedTier === '10' ? (
                   <a 
                     href="https://wa.me/YOUR_NUMBER?text=I want to buy R5 activation code" 
                     className={styles.whatsappButton}

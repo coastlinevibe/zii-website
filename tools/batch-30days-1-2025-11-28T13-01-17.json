@@ -1,0 +1,78 @@
+{
+  "generated": "2025-11-28T13:01:17.880Z",
+  "count": 10,
+  "durationDays": 30,
+  "batchId": 1,
+  "codes": [
+    {
+      "code": "0006-1E01-086C-D4C1",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.875Z",
+      "used": false
+    },
+    {
+      "code": "0042-1E01-93C0-462A",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.877Z",
+      "used": false
+    },
+    {
+      "code": "B8C5-1E01-7D44-7B58",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.878Z",
+      "used": false
+    },
+    {
+      "code": "1268-1E01-60EC-F608",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.878Z",
+      "used": false
+    },
+    {
+      "code": "C313-1E01-C77B-D0E3",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.878Z",
+      "used": false
+    },
+    {
+      "code": "775B-1E01-185D-734B",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.878Z",
+      "used": false
+    },
+    {
+      "code": "205C-1E01-17B5-F1F2",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.878Z",
+      "used": false
+    },
+    {
+      "code": "15D4-1E01-93D8-BAB1",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.878Z",
+      "used": false
+    },
+    {
+      "code": "2F0F-1E01-24D3-7637",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.879Z",
+      "used": false
+    },
+    {
+      "code": "FA14-1E01-BDC5-45A2",
+      "durationDays": 30,
+      "batchId": 1,
+      "generated": "2025-11-28T13:01:17.879Z",
+      "used": false
+    }
+  ]
+}
