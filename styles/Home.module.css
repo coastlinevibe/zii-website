@@ -1,0 +1,283 @@
+.main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  color: white;
+}
+
+.heroContent {
+  max-width: 800px;
+}
+
+.problemText {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin-bottom: 1rem;
+  color: #ff6b6b;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.painPoints {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #ffeb3b;
+  opacity: 0.9;
+}
+
+.divider {
+  width: 100px;
+  height: 4px;
+  background: white;
+  margin: 2rem auto;
+  border-radius: 2px;
+}
+
+.solutionText {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 3rem;
+  line-height: 1.4;
+  color: #00ff88;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.ctaButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.primaryButton, .secondaryButton {
+  padding: 1.2rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.primaryButton {
+  background: #00ff88;
+  color: #1a1a2e;
+}
+
+.secondaryButton {
+  background: white;
+  color: #667eea;
+}
+
+.primaryButton:hover, .secondaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.features, .pricing, .howItWorks {
+  padding: 5rem 2rem;
+  background: white;
+}
+
+.features h2, .pricing h2, .howItWorks h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: #1a1a2e;
+}
+
+.featureGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  padding: 2rem;
+  border-radius: 20px;
+  background: #f8f9fa;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.featureIcon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: #667eea;
+}
+
+.featureCard p {
+  color: #666;
+  line-height: 1.6;
+}
+
+.pricingGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.pricingCard {
+  padding: 2.5rem 2rem;
+  border-radius: 20px;
+  background: #f8f9fa;
+  text-align: center;
+  border: 3px solid transparent;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.pricingCard.popular {
+  border-color: #00ff88;
+  transform: scale(1.05);
+}
+
+.badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00ff88;
+  color: #1a1a2e;
+  padding: 0.5rem 1.5rem;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.pricingCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: #1a1a2e;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 900;
+  color: #667eea;
+  margin-bottom: 0.5rem;
+}
+
+.pricingCard p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.buyButton {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: #667eea;
+  color: white;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.2s;
+}
+
+.buyButton:hover {
+  background: #764ba2;
+  transform: translateY(-2px);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.step {
+  text-align: center;
+}
+
+.stepNumber {
+  width: 60px;
+  height: 60px;
+  background: #667eea;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 900;
+  margin: 0 auto 1rem;
+}
+
+.step h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #1a1a2e;
+}
+
+.step p {
+  color: #666;
+}
+
+.footer {
+  background: #1a1a2e;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.footerLinks {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.footerLinks a {
+  color: #00ff88;
+  text-decoration: none;
+}
+
+.footerLinks a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .problemText {
+    font-size: 2.5rem;
+  }
+  
+  .painPoints {
+    font-size: 1.5rem;
+  }
+  
+  .solutionText {
+    font-size: 1.8rem;
+  }
+  
+  .ctaButtons {
+    flex-direction: column;
+  }
+  
+  .primaryButton, .secondaryButton {
+    width: 100%;
+  }
+}

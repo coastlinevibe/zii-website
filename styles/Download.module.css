@@ -1,0 +1,134 @@
+.main {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 4rem 2rem;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.container h1 {
+  text-align: center;
+  color: white;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+}
+
+.downloadCard {
+  background: white;
+  border-radius: 20px;
+  padding: 3rem;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.icon {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.downloadCard h2 {
+  font-size: 2rem;
+  color: #1a1a2e;
+  margin-bottom: 0.5rem;
+}
+
+.version {
+  color: #667eea;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.size {
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.downloadButton {
+  display: inline-block;
+  padding: 1.2rem 3rem;
+  background: #00ff88;
+  color: #1a1a2e;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.2rem;
+  transition: all 0.2s;
+  margin-bottom: 3rem;
+}
+
+.downloadButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,255,136,0.3);
+}
+
+.instructions, .requirements {
+  text-align: left;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.instructions h3, .requirements h3 {
+  color: #667eea;
+  margin-bottom: 1rem;
+}
+
+.instructions ol, .requirements ul {
+  color: #666;
+  line-height: 1.8;
+  padding-left: 1.5rem;
+}
+
+.needCode {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+}
+
+.needCode p {
+  color: white;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.buyLink {
+  color: #00ff88;
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-decoration: none;
+}
+
+.buyLink:hover {
+  text-decoration: underline;
+}
+
+.backLink {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.backLink a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.backLink a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .container h1 {
+    font-size: 2rem;
+  }
+  
+  .downloadCard {
+    padding: 2rem 1.5rem;
+  }
+}
