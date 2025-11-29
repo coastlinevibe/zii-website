@@ -37,7 +37,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section className={styles.features}>
-          <h2>How Zii Chat Rolls</h2>
+          <h2>How Zii Chat <span className={styles.rollsText}>R<img src="/images/ww.png" alt="O" className={styles.rollingTyre} />LLS</span></h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
               <div className={styles.featureIcon}>💬</div>
