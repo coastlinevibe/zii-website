@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
+import HeroGallery from '../components/HeroGallery';
+import RotatingText from '../components/RotatingText';
 
 export default function Home() {
   return (
@@ -13,28 +15,21 @@ export default function Home() {
       <main className={styles.main}>
         {/* Hero Section */}
         <section className={styles.hero}>
-          <div className={styles.heroContent}>
-            <h1 className={styles.problemText}>
-              🚫 Out of Data?
-            </h1>
-            <h2 className={styles.painPoints}>
-              No Chat. No Friends. No Life.
-            </h2>
-            
-            <div className={styles.divider}></div>
-            
-            <h1 className={styles.solutionText}>
-              ✅ Stay Connected<br/>
-              ✅ Data Freedom<br/>
-              ✅ Ziirroo Stress!
-            </h1>
+          {/* Gallery Component with Particle Text Overlay */}
+          <div className={styles.heroMiddle}>
+            <HeroGallery />
+          </div>
+
+          {/* BOTTOM - Tagline and CTA Buttons */}
+          <div className={styles.heroBottom}>
+            <RotatingText />
             
             <div className={styles.ctaButtons}>
               <a href="/download" className={styles.primaryButton}>
                 Download Now
               </a>
               <a href="/buy" className={styles.secondaryButton}>
-                Buy Activation Code
+                Grab Your Code
               </a>
             </div>
           </div>
@@ -42,12 +37,12 @@ export default function Home() {
 
         {/* Features Section */}
         <section className={styles.features}>
-          <h2>How Zii Chat Works</h2>
+          <h2>How Zii Chat Rolls</h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
               <div className={styles.featureIcon}>💬</div>
               <h3>Chat Offline</h3>
-              <p>Connect via Bluetooth mesh network. No internet needed!</p>
+              <p>Connect via Bluetooth mesh network. No data, no stress!</p>
             </div>
             <div className={styles.featureCard}>
               <div className={styles.featureIcon}>📍</div>
@@ -69,7 +64,7 @@ export default function Home() {
 
         {/* Pricing Section */}
         <section className={styles.pricing}>
-          <h2>Simple Pricing</h2>
+          <h2>Lekker Deals</h2>
           <div className={styles.pricingGrid}>
             <div className={styles.pricingCard}>
               <h3>10 Days</h3>
@@ -101,7 +96,7 @@ export default function Home() {
 
         {/* How It Works */}
         <section className={styles.howItWorks}>
-          <h2>Get Started in 4 Steps</h2>
+          <h2>4 Easy Moves</h2>
           <div className={styles.steps}>
             <div className={styles.step}>
               <div className={styles.stepNumber}>1</div>
@@ -128,7 +123,7 @@ export default function Home() {
 
         {/* Why Choose Zii */}
         <section className={styles.whyChoose}>
-          <h2>Why Choose Zii Chat?</h2>
+          <h2>Why Zii is Chisa 🔥</h2>
           <div className={styles.comparisonGrid}>
             <div className={styles.comparisonCard}>
               <h3>❌ Traditional Apps</h3>
@@ -155,7 +150,7 @@ export default function Home() {
 
         {/* Use Cases */}
         <section className={styles.useCases}>
-          <h2>Perfect For</h2>
+          <h2>Made For</h2>
           <div className={styles.useCaseGrid}>
             <div className={styles.useCaseCard}>
               <div className={styles.useCaseIcon}>🎓</div>
@@ -231,11 +226,11 @@ export default function Home() {
 
         {/* Testimonials */}
         <section className={styles.testimonials}>
-          <h2>What People Are Saying</h2>
+          <h2>Mzansi Reviews</h2>
           <div className={styles.testimonialGrid}>
             <div className={styles.testimonialCard}>
               <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
-              <p>"Finally! A chat app that doesn't eat my data. Perfect for when I'm out of bundles."</p>
+              <p>"Finally! A chat app that doesn't eat my data. Perfect for when my data is finished."</p>
               <div className={styles.author}>- Thabo M., Johannesburg</div>
             </div>
             <div className={styles.testimonialCard}>
@@ -253,8 +248,8 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className={styles.finalCta}>
-          <h2>Ready to Break Free from Data Costs?</h2>
-          <p>Join thousands of South Africans chatting without limits</p>
+          <h2>Gatvol of Data Costs?</h2>
+          <p>Jump in with thousands in S.A.</p>
           <div className={styles.ctaButtons}>
             <a href="/download" className={styles.primaryButton}>
               Download Free App

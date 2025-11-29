@@ -1,0 +1,119 @@
+.galleryContainer {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.slider {
+  position: relative;
+}
+
+.particleOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 100px);
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.sliderImage {
+  border-radius: 0;
+  height: 650px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.btnGroup {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  border-radius: 0;
+  overflow: hidden;
+}
+
+.sliderBtn {
+  position: relative;
+  text-align: left;
+  cursor: pointer;
+  padding: 1rem;
+  border: none;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  background: transparent;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.sliderBtn:last-child {
+  border-right: none;
+}
+
+.progressBar {
+  background: rgba(255, 255, 255, 0.25);
+  height: 100%;
+}
+
+.btnTitle {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  background: #BFFF00;
+  color: #0a0a0a;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.btnDesc {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .sliderImage {
+    height: 400px;
+  }
+
+  .btnGroup {
+    position: relative;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .sliderBtn {
+    padding: 0.75rem;
+  }
+  
+  .sliderBtn:nth-child(2),
+  .sliderBtn:nth-child(4) {
+    border-right: none;
+  }
+  
+  .sliderBtn:nth-child(1),
+  .sliderBtn:nth-child(2) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .btnTitle {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.5rem;
+  }
+  
+  .btnDesc {
+    font-size: 0.75rem;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+  }
+}
