@@ -37,7 +37,7 @@ export default function Home() {
 
         {/* Features Section */}
         <section className={styles.features}>
-          <h2>How Zii Chat <span className={styles.rollsText}>R<img src="/images/ww.png" alt="O" className={styles.rollingTyre} />LLS</span></h2>
+          <h2>How <span className={styles.ziiText}>Zii</span> Chat <span className={styles.rollsText}>R<img src="/images/ww.png" alt="O" className={styles.rollingTyre} />LLS</span></h2>
           <div className={styles.featureGrid}>
             <div className={styles.featureCard}>
               <div className={styles.featureIcon}>💬</div>
@@ -64,7 +64,7 @@ export default function Home() {
 
         {/* Pricing Section */}
         <section className={styles.pricing}>
-          <h2>Lekker Deals</h2>
+          <h2><img src="/images/rb2.png" alt="rugby" className={styles.ballIcon} /> Lekka Deals <img src="/images/sb2.png" alt="soccer" className={styles.soccerIcon} /></h2>
           <div className={styles.pricingGrid}>
             <div className={styles.pricingCard}>
               <h3>10 Days</h3>
@@ -100,7 +100,7 @@ export default function Home() {
           <div className={styles.steps}>
             <div className={styles.step}>
               <div className={styles.stepNumber}>1</div>
-              <h3>Download Zii Chat</h3>
+              <h3>Download <span className={styles.ziiText}>Zii</span> Chat</h3>
               <p>Get the Android app</p>
             </div>
             <div className={styles.step}>
@@ -123,7 +123,7 @@ export default function Home() {
 
         {/* Why Choose Zii */}
         <section className={styles.whyChoose}>
-          <h2>Why Zii is Chisa 🔥</h2>
+          <h2>Why <span className={styles.ziiText}>Zii</span> is Chisa 🔥</h2>
           <div className={styles.comparisonGrid}>
             <div className={styles.comparisonCard}>
               <h3>❌ Traditional Apps</h3>
@@ -136,7 +136,7 @@ export default function Home() {
               </ul>
             </div>
             <div className={styles.comparisonCard + ' ' + styles.highlight}>
-              <h3>✅ Zii Chat</h3>
+              <h3>✅ <span className={styles.ziiText}>Zii</span> Chat</h3>
               <ul>
                 <li>Works offline via Bluetooth</li>
                 <li>Affordable one-time codes</li>
@@ -191,7 +191,7 @@ export default function Home() {
           <div className={styles.faqGrid}>
             <div className={styles.faqItem}>
               <h3>💬 How does offline chat work?</h3>
-              <p>Zii Chat uses Bluetooth mesh networking to connect nearby devices. Messages hop from phone to phone until they reach the recipient - no internet needed!</p>
+              <p><span className={styles.ziiText}>Zii</span> Chat uses Bluetooth mesh networking to connect nearby devices. Messages hop from phone to phone until they reach the recipient - no internet needed!</p>
             </div>
             <div className={styles.faqItem}>
               <h3>📍 What are location channels?</h3>
@@ -211,7 +211,7 @@ export default function Home() {
             </div>
             <div className={styles.faqItem}>
               <h3>🔋 Does it drain my battery?</h3>
-              <p>Nope! Zii Chat is optimized for battery efficiency. Bluetooth Low Energy means minimal power consumption.</p>
+              <p>Nope! <span className={styles.ziiText}>Zii</span> Chat is optimized for battery efficiency. Bluetooth Low Energy means minimal power consumption.</p>
             </div>
             <div className={styles.faqItem}>
               <h3>📶 What's the range?</h3>
@@ -265,7 +265,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className={styles.footer}>
-          <p>© 2025 Zii Chat. Open Source • Privacy First • Decentralized</p>
+          <p>© 2025 <span className={styles.ziiText}>Zii</span> Chat. Open Source • Privacy First • Decentralized</p>
           <div className={styles.footerLinks}>
             <a href="/support">Support</a>
             <a href="/privacy">Privacy</a>

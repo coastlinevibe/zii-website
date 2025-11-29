@@ -205,6 +205,28 @@
   box-shadow: 0 0 10px rgba(191, 255, 0, 0.5);
 }
 
+.ziiText {
+  text-transform: none;
+}
+
+.ballIcon {
+  display: inline-block;
+  height: 1.2em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 0.3em;
+}
+
+.soccerIcon {
+  display: inline-block;
+  height: 1.38em;
+  width: auto;
+  vertical-align: middle;
+  margin: 0 0.3em;
+}
+
+
+
 .rollsText {
   font-size: 1.4em;
   font-style: italic;
@@ -326,22 +348,38 @@
   transition: all 0.3s ease;
   position: relative;
   box-shadow: 0 8px 30px rgba(255, 0, 107, 0.4);
+  animation: pulse 2s ease-in-out infinite;
 }
 
 .pricingCard:nth-child(1) {
   background: linear-gradient(135deg, #FF006B 0%, #E91E63 100%);
+  animation-delay: 0s;
 }
 
 .pricingCard:nth-child(2) {
   background: linear-gradient(135deg, #BFFF00 0%, #A4E800 100%);
+  animation-delay: 0.5s;
 }
 
 .pricingCard:nth-child(3) {
   background: linear-gradient(135deg, #FF9500 0%, #FF6B00 100%);
+  animation-delay: 1s;
 }
 
 .pricingCard:nth-child(4) {
   background: linear-gradient(135deg, #00BCD4 0%, #0097A7 100%);
+  animation-delay: 1.5s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.5);
+  }
 }
 
 .pricingCard.popular {
