@@ -1,0 +1,201 @@
+.container {
+  width: 100%;
+  padding: 3rem 0;
+  margin-top: 50px;
+  overflow: hidden;
+  position: relative;
+  background: transparent;
+  height: 70px;
+}
+
+.track {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  max-width: 100%;
+  height: 70px;
+  background: white;
+  border-top: 6px solid #BFFF00;
+  border-bottom: 6px solid #BFFF00;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.track::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-image: repeating-linear-gradient(
+    to right,
+    rgba(200, 200, 200, 0.4) 0px,
+    rgba(200, 200, 200, 0.4) 30px,
+    transparent 30px,
+    transparent 50px
+  );
+  transform: translateY(-50%);
+  z-index: 0;
+}
+
+/* Round 1: Visible first, then hidden after eating */
+.track[data-round="1"] {
+  animation: showRound1 16s linear infinite;
+}
+
+.track[data-round="2"] {
+  animation: showRound2 16s linear infinite;
+}
+
+.pacman {
+  position: absolute;
+  left: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  z-index: 10;
+  background: url('/images/pac.gif') no-repeat center center;
+  background-size: contain;
+}
+
+.track[data-round="1"] .pacman {
+  animation: movePacman 8s linear infinite;
+}
+
+.track[data-round="2"] .pacman {
+  animation: movePacman 8s linear 8s infinite;
+}
+
+.pacmanTop,
+.pacmanBottom {
+  display: none;
+}
+
+.word {
+  font-size: 1.35rem;
+  font-weight: 900;
+  color: #FF006B;
+  position: relative;
+  z-index: 1;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+  font-family: 'Comic Sans MS', 'Chalkboard SE', 'Comic Neue', cursive, sans-serif;
+  letter-spacing: 1px;
+  opacity: 1;
+}
+
+.zii {
+  text-transform: none;
+}
+
+/* Round 1 words - eat them */
+.track[data-round="1"] .word[data-index="0"] { animation: eatWord1 16s linear infinite; }
+.track[data-round="1"] .word[data-index="1"] { animation: eatWord1 16s linear infinite; animation-delay: 0.8s; }
+.track[data-round="1"] .word[data-index="2"] { animation: eatWord1 16s linear infinite; animation-delay: 1.6s; }
+.track[data-round="1"] .word[data-index="3"] { animation: eatWord1 16s linear infinite; animation-delay: 2.4s; }
+.track[data-round="1"] .word[data-index="4"] { animation: eatWord1 16s linear infinite; animation-delay: 3.2s; }
+.track[data-round="1"] .word[data-index="5"] { animation: eatWord1 16s linear infinite; animation-delay: 4s; }
+.track[data-round="1"] .word[data-index="6"] { animation: eatWord1 16s linear infinite; animation-delay: 4.8s; }
+.track[data-round="1"] .word[data-index="7"] { animation: eatWord1 16s linear infinite; animation-delay: 5.6s; }
+
+/* Round 2 words - eat them */
+.track[data-round="2"] .word[data-index="0"] { animation: eatWord2 16s linear infinite; }
+.track[data-round="2"] .word[data-index="1"] { animation: eatWord2 16s linear infinite; animation-delay: 0.8s; }
+.track[data-round="2"] .word[data-index="2"] { animation: eatWord2 16s linear infinite; animation-delay: 1.6s; }
+.track[data-round="2"] .word[data-index="3"] { animation: eatWord2 16s linear infinite; animation-delay: 2.4s; }
+.track[data-round="2"] .word[data-index="4"] { animation: eatWord2 16s linear infinite; animation-delay: 3.2s; }
+.track[data-round="2"] .word[data-index="5"] { animation: eatWord2 16s linear infinite; animation-delay: 4s; }
+.track[data-round="2"] .word[data-index="6"] { animation: eatWord2 16s linear infinite; animation-delay: 4.8s; }
+.track[data-round="2"] .word[data-index="7"] { animation: eatWord2 16s linear infinite; animation-delay: 5.6s; }
+
+@keyframes showRound1 {
+  0%, 50% {
+    opacity: 1;
+    visibility: visible;
+  }
+  50.1%, 100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+@keyframes showRound2 {
+  0%, 49.9% {
+    opacity: 0;
+    visibility: hidden;
+  }
+  50%, 100% {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes movePacman {
+  0% {
+    left: -50px;
+  }
+  100% {
+    left: calc(100% + 50px);
+  }
+}
+
+
+
+@keyframes eatWord1 {
+  0%, 5% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  5.1%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes eatWord2 {
+  0%, 49.9% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50%, 55% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  55.1%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    height: 60px;
+  }
+
+  .track {
+    height: 60px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+  }
+
+  .word {
+    font-size: 1rem;
+  }
+  
+  .pacman {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .pacmanTop,
+  .pacmanBottom {
+    border-left-width: 17px;
+    border-top-width: 17px;
+    border-bottom-width: 17px;
+  }
+}

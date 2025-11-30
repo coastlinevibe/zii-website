@@ -1,9 +1,21 @@
 import Head from 'next/head';
+import Script from 'next/script';
+import { useEffect, useState } from 'react';
 import styles from '../styles/Home.module.css';
 import HeroGallery from '../components/HeroGallery';
 import RotatingText from '../components/RotatingText';
+import PacmanAnimation from '../components/PacmanAnimation';
+import FAQWithSpiral from '../components/FAQWithSpiral';
+import StaggerTestimonials from '../components/StaggerTestimonials';
+import UseCaseCards from '../components/UseCaseCards';
+import ComparisonCards from '../components/ComparisonCards';
 
 export default function Home() {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   return (
     <>
       <Head>
@@ -11,6 +23,7 @@ export default function Home() {
         <meta name="description" content="Chat offline via Bluetooth. Connect by location online. No data needed!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
+      <Script src="https://tenor.com/embed.js" strategy="lazyOnload" />
 
       <main className={styles.main}>
         {/* Hero Section */}
@@ -96,25 +109,37 @@ export default function Home() {
 
         {/* How It Works */}
         <section className={styles.howItWorks}>
-          <h2>4 Easy Moves</h2>
+          {mounted && (
+            <div className={styles.dancingGif}>
+              <div className="tenor-gif-embed" data-postid="4399851572124504852" data-share-method="host" data-aspect-ratio="1.36283" data-width="100%">
+                <a href="https://tenor.com/view/dancing-shadow-dancing-man-dancing-shadow-dancing-to-music-gif-4399851572124504852">Dancing Shadow-dancing GIF</a> from <a href="https://tenor.com/search/dancing-gifs">Dancing GIFs</a>
+              </div>
+            </div>
+          )}
+          <div className={styles.howItWorksHeader}>
+            <div className={styles.titleWrapper}>
+              <h2>4 Easy Moves</h2>
+              <p className={styles.moveWisely}>Best MOVE ? .. Stay connected, No Data needed!</p>
+            </div>
+          </div>
           <div className={styles.steps}>
             <div className={styles.step}>
-              <div className={styles.stepNumber}>1</div>
+              <img src="/images/down150.png" alt="Download" className={styles.stepIcon} />
               <h3>Download <span className={styles.ziiText}>Zii</span> Chat</h3>
               <p>Get the Android app</p>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNumber}>2</div>
+              <img src="/images/buy150.png" alt="Buy Code" className={styles.stepIcon} />
               <h3>Buy Activation Code</h3>
               <p>Choose your plan</p>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNumber}>3</div>
+              <img src="/images/code150.png" alt="Enter Code" className={styles.stepIcon} />
               <h3>Enter Code in App</h3>
               <p>Activate your subscription</p>
             </div>
             <div className={styles.step}>
-              <div className={styles.stepNumber}>4</div>
+              <img src="/images/chat150.png" alt="Chat" className={styles.stepIcon} />
               <h3>Chat Without Data!</h3>
               <p>Stay connected anywhere</p>
             </div>
@@ -124,132 +149,29 @@ export default function Home() {
         {/* Why Choose Zii */}
         <section className={styles.whyChoose}>
           <h2>Why <span className={styles.ziiText}>Zii</span> is Chisa 🔥</h2>
-          <div className={styles.comparisonGrid}>
-            <div className={styles.comparisonCard}>
-              <h3>❌ Traditional Apps</h3>
-              <ul>
-                <li>Need constant data</li>
-                <li>Expensive monthly costs</li>
-                <li>Track your activity</li>
-                <li>Sell your data</li>
-                <li>Centralized servers</li>
-              </ul>
-            </div>
-            <div className={styles.comparisonCard + ' ' + styles.highlight}>
-              <h3>✅ <span className={styles.ziiText}>Zii</span> Chat</h3>
-              <ul>
-                <li>Works offline via Bluetooth</li>
-                <li>Affordable one-time codes</li>
-                <li>No tracking, ever</li>
-                <li>Your data stays yours</li>
-                <li>Decentralized network</li>
-              </ul>
-            </div>
-          </div>
+          <ComparisonCards />
         </section>
 
         {/* Use Cases */}
         <section className={styles.useCases}>
-          <h2>Made For</h2>
-          <div className={styles.useCaseGrid}>
-            <div className={styles.useCaseCard}>
-              <div className={styles.useCaseIcon}>🎓</div>
-              <h3>Students</h3>
-              <p>Stay connected on campus without burning through data</p>
-            </div>
-            <div className={styles.useCaseCard}>
-              <div className={styles.useCaseIcon}>🏢</div>
-              <h3>Offices</h3>
-              <p>Team communication without internet dependency</p>
-            </div>
-            <div className={styles.useCaseCard}>
-              <div className={styles.useCaseIcon}>🏘️</div>
-              <h3>Communities</h3>
-              <p>Neighborhood chat and local updates</p>
-            </div>
-            <div className={styles.useCaseCard}>
-              <div className={styles.useCaseIcon}>🚌</div>
-              <h3>Commuters</h3>
-              <p>Chat on the go without worrying about data</p>
-            </div>
-            <div className={styles.useCaseCard}>
-              <div className={styles.useCaseIcon}>🏕️</div>
-              <h3>Events</h3>
-              <p>Coordinate at festivals, conferences, gatherings</p>
-            </div>
-            <div className={styles.useCaseCard}>
-              <div className={styles.useCaseIcon}>🔒</div>
-              <h3>Privacy Advocates</h3>
-              <p>Truly private messaging with no surveillance</p>
-            </div>
-          </div>
+          <h2>Where <span className={styles.ziiText}>Zii</span> Chat Happens</h2>
+          <UseCaseCards />
+          <PacmanAnimation />
         </section>
 
         {/* FAQ Section */}
-        <section className={styles.faq}>
-          <h2>Frequently Asked Questions</h2>
-          <div className={styles.faqGrid}>
-            <div className={styles.faqItem}>
-              <h3>💬 How does offline chat work?</h3>
-              <p><span className={styles.ziiText}>Zii</span> Chat uses Bluetooth mesh networking to connect nearby devices. Messages hop from phone to phone until they reach the recipient - no internet needed!</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>📍 What are location channels?</h3>
-              <p>When you're online, you can join chat rooms based on your location - from your street to your city. Connect with people nearby!</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>🔐 Is it really private?</h3>
-              <p>Yes! All messages are end-to-end encrypted. We don't store messages on servers, track your activity, or sell your data. Ever.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>💰 Why do I need an activation code?</h3>
-              <p>Activation codes give you access to online features like location channels and cloud sync. Offline Bluetooth chat is always free!</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>📱 Which devices are supported?</h3>
-              <p>Currently Android 8.0+. iOS support coming soon! Works on phones and tablets.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>🔋 Does it drain my battery?</h3>
-              <p>Nope! <span className={styles.ziiText}>Zii</span> Chat is optimized for battery efficiency. Bluetooth Low Energy means minimal power consumption.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>📶 What's the range?</h3>
-              <p>Direct Bluetooth range is about 10-30 meters. But with mesh networking, messages can travel much further by hopping between devices!</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>💳 What payment methods do you accept?</h3>
-              <p>We accept all major payment methods including credit cards, debit cards, and mobile money. Secure checkout guaranteed.</p>
-            </div>
-          </div>
-        </section>
+        <FAQWithSpiral />
 
         {/* Testimonials */}
         <section className={styles.testimonials}>
           <h2>Mzansi Reviews</h2>
-          <div className={styles.testimonialGrid}>
-            <div className={styles.testimonialCard}>
-              <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
-              <p>"Finally! A chat app that doesn't eat my data. Perfect for when my data is finished."</p>
-              <div className={styles.author}>- Thabo M., Johannesburg</div>
-            </div>
-            <div className={styles.testimonialCard}>
-              <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
-              <p>"Love the privacy features. No more worrying about who's reading my messages."</p>
-              <div className={styles.author}>- Sarah K., Cape Town</div>
-            </div>
-            <div className={styles.testimonialCard}>
-              <div className={styles.stars}>⭐⭐⭐⭐⭐</div>
-              <p>"Our whole campus uses it now. Bluetooth mesh is genius!"</p>
-              <div className={styles.author}>- David N., Durban</div>
-            </div>
-          </div>
+          <StaggerTestimonials />
         </section>
 
         {/* CTA Section */}
         <section className={styles.finalCta}>
-          <h2>Gatvol of Data Costs?</h2>
-          <p>Jump in with thousands in S.A.</p>
+          <h2>Gatvol of paying for Data?</h2>
+          <p>Hang with the clevas!</p>
           <div className={styles.ctaButtons}>
             <a href="/download" className={styles.primaryButton}>
               Download Free App
@@ -259,13 +181,13 @@ export default function Home() {
             </a>
           </div>
           <p className={styles.ctaSubtext}>
-            ✓ No credit card required to download  ✓ Offline chat always free  ✓ Cancel anytime
+            ✓ Activate your code  ✓ Offline chat always free  ✓ Cancel anytime
           </p>
         </section>
 
         {/* Footer */}
         <footer className={styles.footer}>
-          <p>© 2025 <span className={styles.ziiText}>Zii</span> Chat. Open Source • Privacy First • Decentralized</p>
+          <p>© 2025 <span className={styles.ziiText}>Zii</span> Chat. No Data Needed • Privacy First • Powering our S.A💚</p>
           <div className={styles.footerLinks}>
             <a href="/support">Support</a>
             <a href="/privacy">Privacy</a>
