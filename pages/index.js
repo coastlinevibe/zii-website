@@ -15,6 +15,11 @@ export default function Home() {
 
   useEffect(() => {
     setMounted(true);
+    
+    // Trigger Tenor embed script
+    if (typeof window !== 'undefined' && window.TenorEmbed) {
+      window.TenorEmbed.mount();
+    }
   }, []);
   return (
     <>
@@ -26,7 +31,15 @@ export default function Home() {
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
       </Head>
-      <Script src="https://tenor.com/embed.js" strategy="lazyOnload" />
+      <Script 
+        src="https://tenor.com/embed.js" 
+        strategy="afterInteractive"
+        onLoad={() => {
+          if (window.TenorEmbed) {
+            window.TenorEmbed.mount();
+          }
+        }}
+      />
 
       <main className={styles.main}>
         {/* Hero Section */}
@@ -151,12 +164,20 @@ export default function Home() {
 
         {/* Why Choose Zii */}
         <section className={styles.whyChoose}>
-          <h2>Why <span className={styles.ziiText}>Zii</span> is Chisa 🔥</h2>
+          <h2>Why <span className={styles.ziiText}>Zii</span> Chat is Chisa 🔥</h2>
           <ComparisonCards />
         </section>
 
         {/* Use Cases */}
         <section className={styles.useCases}>
+          <div className={styles.ctaButtons}>
+            <a href="/download" className={styles.primaryButton}>
+              Download Now
+            </a>
+            <a href="/buy" className={styles.secondaryButton}>
+              Grab Your Code
+            </a>
+          </div>
           <h2>Where <span className={styles.ziiText}>Zii</span> Chat Happens</h2>
           <UseCaseCards />
           <PacmanAnimation />
@@ -174,7 +195,7 @@ export default function Home() {
         {/* CTA Section */}
         <section className={styles.finalCta}>
           <h2><span className={styles.gatvol}>GATVOL</span> <span className={styles.noGlow}>of paying for Data?</span></h2>
-          <p>Hang with the clevas!</p>
+          <p>Stay connected. Ziirroo data cost!</p>
           <div className={styles.ctaButtons}>
             <a href="/download" className={styles.primaryButton}>
               Download Free App
