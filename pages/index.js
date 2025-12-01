@@ -22,6 +22,9 @@ export default function Home() {
         <title>Zii Chat - Data Freedom, Ziirroo Stress!</title>
         <meta name="description" content="Chat offline via Bluetooth. Connect by location online. No data needed!" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet" />
       </Head>
       <Script src="https://tenor.com/embed.js" strategy="lazyOnload" />
 
@@ -170,7 +173,7 @@ export default function Home() {
 
         {/* CTA Section */}
         <section className={styles.finalCta}>
-          <h2>Gatvol of paying for Data?</h2>
+          <h2><span className={styles.gatvol}>GATVOL</span> <span className={styles.noGlow}>of paying for Data?</span></h2>
           <p>Hang with the clevas!</p>
           <div className={styles.ctaButtons}>
             <a href="/download" className={styles.primaryButton}>

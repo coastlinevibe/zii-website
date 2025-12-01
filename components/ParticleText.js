@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from 'react';
 const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
   const canvasRef = useRef(null);
   const containerRef = useRef(null);
-  const mouse = useRef({ x: undefined, y: undefined, radius: 100 });
+  const mouse = useRef({ x: undefined, y: undefined, radius: 90 });
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -72,13 +72,13 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
       particlesArray = [];
       
       // Responsive font size
-      let fontSize = Math.min(canvas.width / 10, 120);
+      let fontSize = Math.min(canvas.width / 10, 105);
       if (canvas.width < 768) {
-        fontSize = Math.min(canvas.width / 8, 60);
+        fontSize = Math.min(canvas.width / 8, 35);
       }
       
       const textX = canvas.width / 2;
-      const textY = canvas.height / 2;
+      const textY = canvas.width < 768 ? (canvas.height / 2) - 50 : canvas.height / 2;
 
       ctx.font = `900 ${fontSize}px "Arial Black", Gadget, sans-serif`;
       ctx.textAlign = 'center';
@@ -128,7 +128,20 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
       mouse.current.y = e.clientY - rect.top;
     };
 
+    const handleTouchMove = (e) => {
+      e.preventDefault();
+      const rect = canvas.getBoundingClientRect();
+      const touch = e.touches[0];
+      mouse.current.x = touch.clientX - rect.left;
+      mouse.current.y = touch.clientY - rect.top;
+    };
+
     const handleMouseLeave = () => {
+      mouse.current.x = undefined;
+      mouse.current.y = undefined;
+    };
+
+    const handleTouchEnd = () => {
       mouse.current.x = undefined;
       mouse.current.y = undefined;
     };
@@ -140,6 +153,8 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
 
     container.addEventListener('mousemove', handleMouseMove);
     container.addEventListener('mouseleave', handleMouseLeave);
+    container.addEventListener('touchmove', handleTouchMove, { passive: false });
+    container.addEventListener('touchend', handleTouchEnd);
     window.addEventListener('resize', handleResize);
 
     init();
@@ -148,6 +163,8 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
     return () => {
       container.removeEventListener('mousemove', handleMouseMove);
       container.removeEventListener('mouseleave', handleMouseLeave);
+      container.removeEventListener('touchmove', handleTouchMove);
+      container.removeEventListener('touchend', handleTouchEnd);
       window.removeEventListener('resize', handleResize);
       cancelAnimationFrame(animationFrameId);
     };
@@ -164,7 +181,8 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
         top: 0,
         left: 0,
         pointerEvents: 'auto',
-        zIndex: 10
+        zIndex: 10,
+        cursor: 'pointer'
       }}
     >
       <canvas ref={canvasRef} style={{ display: 'block' }} />

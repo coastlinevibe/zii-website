@@ -19,9 +19,76 @@
   pointer-events: auto;
 }
 
+.mzansiSmilesContainer {
+  position: absolute;
+  top: 47px;
+  left: 40px;
+  z-index: 15;
+  pointer-events: none;
+}
+
+.mzansiSmiles {
+  font-size: 4rem;
+  font-weight: 400;
+  color: #BFFF00;
+  letter-spacing: 4px;
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 
+    -2px -2px 0 black,
+    2px -2px 0 black,
+    -2px 2px 0 black,
+    2px 2px 0 black,
+    0 -2px 0 black,
+    0 2px 0 black,
+    -2px 0 0 black,
+    2px 0 0 black;
+  -webkit-text-stroke: 19px white;
+  paint-order: stroke fill;
+}
+
+.smilesWithArrow {
+  position: relative;
+  display: inline-block;
+}
+
+.smileArrow {
+  position: absolute;
+  width: 168px;
+  height: 50px;
+  left: 50%;
+  transform: translateX(calc(-50% - 2px));
+  top: 100%;
+  margin-top: -13px;
+  filter: drop-shadow(0 0 0 white) drop-shadow(1px 1px 0 white) drop-shadow(-1px -1px 0 white) drop-shadow(1px -1px 0 white) drop-shadow(-1px 1px 0 white);
+}
+
+.ziiConnects {
+  position: absolute;
+  bottom: 165px;
+  right: 40px;
+  font-size: 2.875rem;
+  font-weight: 400;
+  color: #BFFF00;
+  z-index: 15;
+  pointer-events: none;
+  letter-spacing: 3px;
+  font-family: 'Fredoka One', cursive;
+  text-shadow: 
+    -2px -2px 0 black,
+    2px -2px 0 black,
+    -2px 2px 0 black,
+    2px 2px 0 black,
+    0 -2px 0 black,
+    0 2px 0 black,
+    -2px 0 0 black,
+    2px 0 0 black;
+  -webkit-text-stroke: 7px white;
+  paint-order: stroke fill;
+}
+
 .sliderImage {
   border-radius: 0;
-  height: 650px;
+  height: 845px;
   width: 100%;
   object-fit: cover;
 }
@@ -71,6 +138,26 @@
   margin-bottom: 0.5rem;
 }
 
+.sliderBtn:nth-child(1) .btnTitle {
+  background: #FF1493;
+  color: white;
+}
+
+.sliderBtn:nth-child(2) .btnTitle {
+  background: #00D9FF;
+  color: #0a0a0a;
+}
+
+.sliderBtn:nth-child(3) .btnTitle {
+  background: #FF6B00;
+  color: white;
+}
+
+.sliderBtn:nth-child(4) .btnTitle {
+  background: #BFFF00;
+  color: #0a0a0a;
+}
+
 .btnDesc {
   font-size: 0.85rem;
   font-weight: 500;
@@ -115,5 +202,41 @@
     font-size: 0.75rem;
     -webkit-line-clamp: 2;
     line-clamp: 2;
+  }
+}
+
+@media (max-width: 768px) {
+  .mzansiSmilesContainer {
+    top: 20px;
+    left: 20px;
+  }
+
+  .mzansiSmiles {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    text-shadow: 
+      -2px -2px 0 black,
+      2px -2px 0 black,
+      -2px 2px 0 black,
+      2px 2px 0 black,
+      0 -2px 0 black,
+      0 2px 0 black,
+      -2px 0 0 black,
+      2px 0 0 black;
+    -webkit-text-stroke: 18px white;
+  }
+
+  .smileArrow {
+    width: 145px;
+    height: 35px;
+    margin-top: -13px;
+  }
+
+  .ziiConnects {
+    bottom: 120px;
+    right: 20px;
+    font-size: 1.5rem;
+    letter-spacing: 1.5px;
+    -webkit-text-stroke: 7px white;
   }
 }

@@ -14,7 +14,7 @@
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 4rem 0;
+  padding: 2px 0 4rem 0;
   color: white;
   background: transparent;
   position: relative;
@@ -910,6 +910,22 @@
                0 0 80px rgba(191, 255, 0, 0.4),
                4px 4px 0 rgba(0, 0, 0, 0.5);
   line-height: 1.1;
+}
+
+.gatvol {
+  font-weight: 900;
+  color: #BFFF00;
+  font-style: italic;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  transform: skewX(-5deg);
+  display: inline-block;
+  text-shadow: none;
+}
+
+.noGlow {
+  text-shadow: none;
+  color: #BFFF00;
 }
 
 .finalCta p {

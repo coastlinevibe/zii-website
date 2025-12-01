@@ -38,7 +38,7 @@ export default function RotatingText() {
   return (
     <div className={styles.container}>
       <span className={styles.gooi}>GOOI</span>
-      <span className={styles.staticText}>5 bob, chat with</span>
+      <span className={styles.staticText}>5 bob, and chat with</span>
       <span className={styles.highlight}>
         {displayText}
         <span className={styles.cursor}>|</span>

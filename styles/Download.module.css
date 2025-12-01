@@ -1,12 +1,17 @@
 .main {
   min-height: 100vh;
-  background: #f8f9fa;
+  background-color: #0a0a0a;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 48px 48px;
 }
 
 /* Header */
 .header {
-  background: white;
-  border-bottom: 1px solid #e0e0e0;
+  background: rgba(10, 10, 10, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(191, 255, 0, 0.2);
   padding: 1rem 2rem;
   position: sticky;
   top: 0;
@@ -24,7 +29,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: 900;
-  color: #667eea;
+  color: #BFFF00;
   text-decoration: none;
 }
 
@@ -34,20 +39,20 @@
 }
 
 .nav a {
-  color: #1a1a2e;
+  color: white;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   transition: color 0.2s;
 }
 
 .nav a:hover {
-  color: #667eea;
+  color: #BFFF00;
 }
 
 /* Download Hero */
 .downloadHero {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: transparent;
   color: white;
   text-align: center;
 }
@@ -61,12 +66,16 @@
   font-size: 3.5rem;
   font-weight: 900;
   margin-bottom: 1rem;
+  color: #BFFF00;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 0 0 40px rgba(191, 255, 0, 0.6);
 }
 
 .subtitle {
   font-size: 1.3rem;
   margin-bottom: 3rem;
-  opacity: 0.9;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .downloadButtons {
@@ -82,26 +91,31 @@
   align-items: center;
   gap: 1.5rem;
   padding: 1.5rem 2.5rem;
-  background: white;
-  color: #1a1a2e;
+  background: linear-gradient(135deg, #BFFF00 0%, #A4E800 100%);
+  color: #0a0a0a;
   border-radius: 15px;
   text-decoration: none;
   transition: all 0.3s;
   min-width: 250px;
+  box-shadow: 0 8px 30px rgba(191, 255, 0, 0.4);
 }
 
 .downloadButton:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 15px 50px rgba(191, 255, 0, 0.6);
 }
 
 .downloadButton.comingSoon {
+  background: rgba(10, 10, 10, 0.6);
+  color: rgba(255, 255, 255, 0.5);
+  border: 2px solid rgba(191, 255, 0, 0.3);
   opacity: 0.6;
   cursor: not-allowed;
 }
 
 .downloadButton.comingSoon:hover {
   transform: none;
+  box-shadow: none;
 }
 
 .buttonIcon {
@@ -114,13 +128,14 @@
 
 .buttonTitle {
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 900;
   margin-bottom: 0.3rem;
+  text-transform: uppercase;
 }
 
 .buttonSubtitle {
   font-size: 0.9rem;
-  color: #666;
+  opacity: 0.8;
 }
 
 .stats {
@@ -128,7 +143,7 @@
   gap: 3rem;
   justify-content: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255,255,255,0.3);
+  border-top: 1px solid rgba(191, 255, 0, 0.3);
 }
 
 .stat {
@@ -138,25 +153,29 @@
 .statNumber {
   font-size: 2rem;
   font-weight: 900;
-  color: #00ff88;
+  color: #BFFF00;
+  text-shadow: 0 0 20px rgba(191, 255, 0, 0.6);
 }
 
 .statLabel {
   font-size: 0.9rem;
-  opacity: 0.8;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Installation Guide */
 .installGuide {
   padding: 5rem 2rem;
-  background: white;
+  background: transparent;
+  border-top: 1px solid rgba(191, 255, 0, 0.1);
 }
 
 .installGuide h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #1a1a2e;
+  color: #BFFF00;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .steps {
@@ -174,8 +193,8 @@
 .stepNumber {
   width: 60px;
   height: 60px;
-  background: #667eea;
-  color: white;
+  background: #BFFF00;
+  color: #0a0a0a;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -183,30 +202,35 @@
   font-size: 1.8rem;
   font-weight: 900;
   flex-shrink: 0;
+  box-shadow: 0 0 20px rgba(191, 255, 0, 0.5);
 }
 
 .stepContent h3 {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #1a1a2e;
+  color: #BFFF00;
+  font-weight: 800;
 }
 
 .stepContent p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
 }
 
 /* Requirements */
 .requirements {
   padding: 5rem 2rem;
-  background: #f8f9fa;
+  background: transparent;
+  border-top: 1px solid rgba(191, 255, 0, 0.1);
 }
 
 .requirements h2 {
   text-align: center;
   font-size: 2.5rem;
   margin-bottom: 3rem;
-  color: #1a1a2e;
+  color: #BFFF00;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .reqGrid {
@@ -219,43 +243,61 @@
 
 .reqCard {
   padding: 2rem;
-  background: white;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(191, 255, 0, 0.2);
   border-radius: 15px;
   text-align: center;
   transition: all 0.3s;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .reqCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border-color: #BFFF00;
+  box-shadow: 0 12px 40px rgba(191, 255, 0, 0.3);
 }
 
 .reqIcon {
   font-size: 3rem;
   margin-bottom: 1rem;
+  filter: drop-shadow(0 0 10px rgba(191, 255, 0, 0.5));
 }
 
 .reqCard h3 {
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
-  color: #667eea;
+  color: #BFFF00;
+  font-weight: 800;
 }
 
 .reqCard p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
 }
 
 /* Features */
 .features {
   padding: 5rem 2rem;
-  background: white;
+  background: transparent;
+  border-top: 1px solid rgba(191, 255, 0, 0.1);
+}
+
+.features .faqHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .features h2 {
-  text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #1a1a2e;
+  color: #BFFF00;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 .featureList {
@@ -268,44 +310,78 @@
   gap: 1.5rem;
   margin-bottom: 2rem;
   padding: 1.5rem;
-  background: #f8f9fa;
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(191, 255, 0, 0.2);
   border-radius: 12px;
   transition: all 0.3s;
 }
 
 .featureItem:hover {
-  background: #e9ecef;
+  border-color: #BFFF00;
   transform: translateX(10px);
+  box-shadow: 0 8px 30px rgba(191, 255, 0, 0.3);
 }
 
 .checkmark {
   font-size: 2rem;
-  color: #00ff88;
+  color: #BFFF00;
   flex-shrink: 0;
 }
 
 .featureItem h3 {
   font-size: 1.2rem;
   margin-bottom: 0.3rem;
-  color: #1a1a2e;
+  color: #BFFF00;
+  font-weight: 800;
 }
 
 .featureItem p {
-  color: #666;
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
 }
 
 /* FAQ */
 .faq {
   padding: 5rem 2rem;
-  background: #f8f9fa;
+  background: transparent;
+  border-top: 1px solid rgba(191, 255, 0, 0.1);
+}
+
+.faqHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .faq h2 {
-  text-align: center;
   font-size: 2.5rem;
-  margin-bottom: 3rem;
-  color: #1a1a2e;
+  color: #BFFF00;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.expandButton {
+  padding: 0.8rem 1.5rem;
+  background: rgba(191, 255, 0, 0.1);
+  color: #BFFF00;
+  border: 2px solid #BFFF00;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.expandButton:hover {
+  background: #BFFF00;
+  color: #0a0a0a;
 }
 
 .faqList {
@@ -314,76 +390,157 @@
 }
 
 .faqItem {
-  margin-bottom: 2rem;
-  padding: 2rem;
-  background: white;
+  margin-bottom: 1rem;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(191, 255, 0, 0.2);
   border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s;
 }
 
-.faqItem h3 {
+.faqItem:hover {
+  border-color: #BFFF00;
+  box-shadow: 0 8px 30px rgba(191, 255, 0, 0.3);
+}
+
+.faqButton {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+  color: white;
+}
+
+.faqButton h3 {
   font-size: 1.3rem;
-  margin-bottom: 0.8rem;
-  color: #667eea;
+  color: #BFFF00;
+  font-weight: 800;
+  margin: 0;
 }
 
-.faqItem p {
-  color: #666;
+.faqToggle {
+  font-size: 1.5rem;
+  color: #BFFF00;
+  font-weight: 900;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.faqAnswer {
+  padding: 0 2rem 1.5rem 2rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.faqAnswer p {
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.7;
+  margin: 0;
 }
 
 /* CTA */
 .cta {
   padding: 5rem 2rem;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #FF006B 0%, #E91E63 100%);
   color: white;
   text-align: center;
+  border-top: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(191, 255, 0, 0.2) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 1;
 }
 
 .cta h2 {
   font-size: 2.5rem;
   margin-bottom: 1rem;
+  position: relative;
+  z-index: 2;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .cta p {
   font-size: 1.2rem;
   margin-bottom: 2rem;
-  opacity: 0.9;
+  position: relative;
+  z-index: 2;
 }
 
 .ctaButton {
   display: inline-block;
   padding: 1.2rem 3rem;
-  background: #00ff88;
-  color: #1a1a2e;
+  background: #BFFF00;
+  color: #0a0a0a;
   border-radius: 50px;
   text-decoration: none;
   font-size: 1.3rem;
-  font-weight: 700;
+  font-weight: 900;
   transition: all 0.3s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 2;
+  box-shadow: 0 8px 30px rgba(191, 255, 0, 0.4);
 }
 
 .ctaButton:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+  box-shadow: 0 15px 50px rgba(191, 255, 0, 0.6);
+  background: #A4E800;
 }
 
 .ctaSubtext {
   margin-top: 1.5rem;
   font-size: 1rem;
-  opacity: 0.8;
+  position: relative;
+  z-index: 2;
 }
 
 .ctaSubtext a {
-  color: #00ff88;
+  color: #BFFF00;
   text-decoration: underline;
+  font-weight: 700;
+}
+
+.ctaSubtext a:hover {
+  color: white;
 }
 
 /* Footer */
 .footer {
-  background: #1a1a2e;
-  color: white;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.8);
   padding: 3rem 2rem;
   text-align: center;
+  border-top: 1px solid rgba(191, 255, 0, 0.2);
 }
 
 .footerLinks {
@@ -394,12 +551,13 @@
 }
 
 .footerLinks a {
-  color: #00ff88;
+  color: #BFFF00;
   text-decoration: none;
+  font-weight: 700;
 }
 
 .footerLinks a:hover {
-  text-decoration: underline;
+  color: #FF006B;
 }
 
 /* Responsive */

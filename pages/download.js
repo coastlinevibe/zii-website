@@ -1,5 +1,120 @@
+import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Download.module.css';
+
+function WhatsIncluded() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  const features = [
+    {
+      title: "Offline Bluetooth Chat",
+      desc: "Chat with nearby users without internet - always free!"
+    },
+    {
+      title: "Location Channels",
+      desc: "Join chat rooms based on your location (requires activation)"
+    },
+    {
+      title: "Private Messaging",
+      desc: "End-to-end encrypted one-on-one chats"
+    },
+    {
+      title: "Group Chats",
+      desc: "Create and manage group conversations"
+    },
+    {
+      title: "No Tracking",
+      desc: "Your privacy is guaranteed - no data collection"
+    }
+  ];
+
+  return (
+    <section className={styles.features}>
+      <div className={styles.faqHeader}>
+        <h2>What's Included</h2>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className={styles.expandButton}
+        >
+          {isExpanded ? "Hide Features ▲" : "Show Features ▼"}
+        </button>
+      </div>
+      
+      {isExpanded && (
+        <div className={styles.featureList}>
+          {features.map((feature, index) => (
+            <div key={index} className={styles.featureItem}>
+              <span className={styles.checkmark}>✓</span>
+              <div>
+                <h3>{feature.title}</h3>
+                <p>{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function DownloadFAQ() {
+  const [isExpanded, setIsExpanded] = useState(false);
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const faqs = [
+    {
+      q: "Is it safe to install?",
+      a: "Yes! Zii Chat is regularly security audited. The APK is signed and verified."
+    },
+    {
+      q: "Why not on Google Play Store?",
+      a: "We're working on it! For now, direct APK download gives you faster updates and no Google tracking."
+    },
+    {
+      q: "Will it work on my phone?",
+      a: "If you have Android 8.0 or higher and Bluetooth, yes! Works on most phones from 2018 onwards."
+    },
+    {
+      q: "Do I need an activation code?",
+      a: "Not for offline Bluetooth chat! Activation codes unlock online features like location channels."
+    }
+  ];
+
+  return (
+    <section className={styles.faq}>
+      <div className={styles.faqHeader}>
+        <h2>Download FAQs</h2>
+        <button
+          onClick={() => setIsExpanded(!isExpanded)}
+          className={styles.expandButton}
+        >
+          {isExpanded ? "Hide FAQs ▲" : "Show FAQs ▼"}
+        </button>
+      </div>
+      
+      {isExpanded && (
+        <div className={styles.faqList}>
+          {faqs.map((faq, index) => (
+            <div key={index} className={styles.faqItem}>
+              <button
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+                className={styles.faqButton}
+              >
+                <h3>{faq.q}</h3>
+                <span className={styles.faqToggle}>{openIndex === index ? "–" : "+"}</span>
+              </button>
+              {openIndex === index && (
+                <div className={styles.faqAnswer}>
+                  <p>{faq.a}</p>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
 
 export default function Download() {
   return (
@@ -128,76 +243,10 @@ export default function Download() {
         </section>
 
         {/* Features */}
-        <section className={styles.features}>
-          <h2>What's Included</h2>
-          <div className={styles.featureList}>
-            <div className={styles.featureItem}>
-              <span className={styles.checkmark}>✓</span>
-              <div>
-                <h3>Offline Bluetooth Chat</h3>
-                <p>Chat with nearby users without internet - always free!</p>
-              </div>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.checkmark}>✓</span>
-              <div>
-                <h3>Location Channels</h3>
-                <p>Join chat rooms based on your location (requires activation)</p>
-              </div>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.checkmark}>✓</span>
-              <div>
-                <h3>Private Messaging</h3>
-                <p>End-to-end encrypted one-on-one chats</p>
-              </div>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.checkmark}>✓</span>
-              <div>
-                <h3>Group Chats</h3>
-                <p>Create and manage group conversations</p>
-              </div>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.checkmark}>✓</span>
-              <div>
-                <h3>No Tracking</h3>
-                <p>Your privacy is guaranteed - no data collection</p>
-              </div>
-            </div>
-            <div className={styles.featureItem}>
-              <span className={styles.checkmark}>✓</span>
-              <div>
-                <h3>Open Source</h3>
-                <p>Transparent code you can trust</p>
-              </div>
-            </div>
-          </div>
-        </section>
+        <WhatsIncluded />
 
         {/* FAQ */}
-        <section className={styles.faq}>
-          <h2>Download FAQ</h2>
-          <div className={styles.faqList}>
-            <div className={styles.faqItem}>
-              <h3>Is it safe to install?</h3>
-              <p>Yes! Zii Chat is open source and regularly security audited. The APK is signed and verified.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>Why not on Google Play Store?</h3>
-              <p>We're working on it! For now, direct APK download gives you faster updates and no Google tracking.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>Will it work on my phone?</h3>
-              <p>If you have Android 8.0 or higher and Bluetooth, yes! Works on most phones from 2018 onwards.</p>
-            </div>
-            <div className={styles.faqItem}>
-              <h3>Do I need an activation code?</h3>
-              <p>Not for offline Bluetooth chat! Activation codes unlock online features like location channels.</p>
-            </div>
-          </div>
-        </section>
+        <DownloadFAQ />
 
         {/* CTA */}
         <section className={styles.cta}>
