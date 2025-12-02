@@ -122,6 +122,9 @@ export default function Download() {
       <Head>
         <title>Download Zii Chat - Free Android App</title>
         <meta name="description" content="Download Zii Chat for Android. Chat offline via Bluetooth, connect by location online." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
 
       <main className={styles.main}>

@@ -17,7 +17,7 @@ export default function AdminLogin() {
 
     // TODO: Replace with actual authentication
     // For now, simple check (CHANGE IN PRODUCTION!)
-    if (username === 'admin' && password === 'zii2024') {
+    if (username === 'admin' && password === '201555') {
       // Store session
       localStorage.setItem('adminAuth', 'true');
       router.push('/admin/dashboard');
@@ -31,6 +31,9 @@ export default function AdminLogin() {
     <>
       <Head>
         <title>Admin Login - Zii Chat</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
 
       <div className={styles.loginContainer}>

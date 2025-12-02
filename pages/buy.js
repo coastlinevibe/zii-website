@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/Buy.module.css';
+import Link from 'next/link';
 
 export default function Buy() {
   const [selectedTier, setSelectedTier] = useState('30');
@@ -32,6 +33,9 @@ export default function Buy() {
       <Head>
         <title>Buy Activation Code - Zii Chat</title>
         <meta name="description" content="Purchase Zii Chat activation code" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
       </Head>
 
       <main className={styles.main}>

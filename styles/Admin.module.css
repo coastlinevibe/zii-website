@@ -6,6 +6,13 @@
   justify-content: center;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.loginContainer h1,
+.loginContainer h2,
+.loginContainer h3 {
+  font-family: 'Fredoka One', cursive;
 }
 
 .loginCard {
@@ -77,6 +84,7 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.2s;
+  font-family: 'Fredoka One', cursive;
 }
 
 .loginButton:hover:not(:disabled) {
@@ -103,6 +111,13 @@
 .dashboard {
   min-height: 100vh;
   background: #f5f5f5;
+  font-family: 'Poppins', sans-serif;
+}
+
+.dashboard h1,
+.dashboard h2,
+.dashboard h3 {
+  font-family: 'Fredoka One', cursive;
 }
 
 .header {

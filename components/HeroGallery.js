@@ -12,27 +12,27 @@ import styles from '../styles/HeroGallery.module.css';
 const items = [
   {
     img: '/images/g1.jpg',
-    title: 'Bridge',
-    desc: 'A breathtaking view of a city illuminated by countless lights, showcasing the vibrant and bustling nightlife.',
+    title: 'Chat Offline',
+    desc: 'Connect via Bluetooth mesh network. No data, no stress!',
     sliderName: 'bridge',
   },
   {
     img: '/images/g2.jpg',
-    title: 'Mountains View',
-    desc: 'A serene lake reflecting the surrounding mountains and trees, creating a mirror-like surface.',
+    title: 'Location Channels',
+    desc: 'Join chat channels based on your location when online.',
     sliderName: 'mountains',
   },
   {
     img: '/images/g3.jpg',
-    title: 'Autumn',
-    desc: 'A picturesque path winding through a dense forest adorned with vibrant autumn foliage.',
+    title: 'Private & Encrypted',
+    desc: 'End-to-end encryption. No tracking. No servers.',
     sliderName: 'autumn',
   },
   {
     img: '/images/g4.jpg',
-    title: 'Foggy',
+    title: 'Decentralized',
     sliderName: 'foggy',
-    desc: 'A stunning foggy view over the forest, with the sun casting a golden glow across the forest.',
+    desc: 'No company controls your messages. True freedom.',
   },
 ];
 
