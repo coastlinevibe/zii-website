@@ -12,6 +12,7 @@ import ComparisonCards from '../components/ComparisonCards';
 
 export default function Home() {
   const [mounted, setMounted] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     setMounted(true);
@@ -20,7 +21,19 @@ export default function Home() {
     if (typeof window !== 'undefined' && window.TenorEmbed) {
       window.TenorEmbed.mount();
     }
+
+    // Show/hide scroll to top button
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 500);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <>
       <Head>
@@ -219,6 +232,14 @@ export default function Home() {
             <a href="/admin/login">Admin</a>
           </div>
         </footer>
+
+        {/* Scroll to Top Button */}
+        {showScrollTop && (
+          <button onClick={scrollToTop} className={styles.scrollToTop} aria-label="Scroll to top">
+            <span className={styles.scrollIcon}>↑</span>
+            <span className={styles.scrollText}>Top</span>
+          </button>
+        )}
       </main>
     </>
   );

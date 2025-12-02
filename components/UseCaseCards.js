@@ -4,18 +4,18 @@ import styles from "../styles/UseCaseCards.module.css";
 const useCases = [
   {
     icon: "🎓",
-    title: "Students",
-    description: "Stay connected on campus without burning through data"
+    title: "Schools & Campuses",
+    description: "Stay focused, free from social media distractions and ads, 100% online!"
   },
   {
     icon: "🏢",
     title: "Offices",
-    description: "Team communication without internet dependency"
+    description: "100% online, zero distractions. No social media, no ads!"
   },
   {
     icon: "🏘️",
     title: "Communities",
-    description: "Neighborhood chat and local updates"
+    description: "Private neighborhood chat, no ads, your data stays yours"
   },
   {
     icon: "🚌",
@@ -23,19 +23,19 @@ const useCases = [
     description: "Chat on the go without worrying about data"
   },
   {
-    icon: "🏕️",
+    icon: "🎪",
     title: "Events",
-    description: "Coordinate at festivals, conferences, gatherings"
+    description: "Coordinate festivals and gatherings, no ads interrupting"
   },
   {
     icon: "🏭",
     title: "Factories",
-    description: "Keep teams connected on the floor without data costs"
+    description: "Keep everyone connected without ads or social media noise"
   },
   {
     icon: "⛪",
     title: "Church Groups",
-    description: "Stay in touch with your congregation and community"
+    description: "Connect your congregation privately, no ads or tracking"
   },
   {
     icon: "🌍",
