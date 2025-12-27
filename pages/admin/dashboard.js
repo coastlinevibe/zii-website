@@ -31,6 +31,7 @@ export default function AdminDashboard() {
     <>
       <Head>
         <title>Admin Dashboard - Zii Chat</title>
+        <meta name="description" content="Zii Chat Admin Dashboard - Manage activation codes and schools" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -78,6 +79,12 @@ export default function AdminDashboard() {
             onClick={() => setActiveTab('partners')}
           >
             🤝 Partners
+          </button>
+          <button
+            className={activeTab === 'schools' ? styles.active : ''}
+            onClick={() => router.push('/admin/schools')}
+          >
+            🏫 Schools
           </button>
         </nav>
 
