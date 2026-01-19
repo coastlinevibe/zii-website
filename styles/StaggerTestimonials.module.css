@@ -137,7 +137,79 @@
   box-shadow: 0 0 0 3px rgba(191, 255, 0, 0.3);
 }
 
+/* Tablet View */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container {
+    height: 550px;
+  }
+
+  .card {
+    padding: 1.75rem;
+  }
+
+  .testimonialText {
+    font-size: 0.8rem;
+    margin-bottom: 2.25rem;
+  }
+
+  .avatar {
+    height: 3rem;
+    width: 2.75rem;
+  }
+
+  .author {
+    font-size: 0.7rem;
+    bottom: 1.25rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .container {
+    height: 500px;
+  }
+
+  .card {
+    padding: 1.5rem;
+  }
+
+  .testimonialText {
+    font-size: 0.8rem;
+    line-height: 1.35;
+    -webkit-line-clamp: 3;
+    margin-bottom: 2.25rem;
+  }
+
+  .author {
+    font-size: 0.7rem;
+    bottom: 1.25rem;
+    left: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .avatar {
+    height: 3rem;
+    width: 2.5rem;
+    margin-bottom: 0.875rem;
+  }
+
+  .controlButton {
+    height: 1.625rem;
+    width: 1.625rem;
+    font-size: 0.95rem;
+  }
+
+  .controls {
+    bottom: 4.5rem;
+  }
+}
+
+/* Small Mobile View */
 @media (max-width: 640px) {
+  .container {
+    height: 450px;
+  }
+
   .card {
     padding: 1.2rem;
   }
@@ -166,5 +238,47 @@
     height: 1.5rem;
     width: 1.5rem;
     font-size: 0.9rem;
+  }
+
+  .controls {
+    bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    height: 400px;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .testimonialText {
+    font-size: 0.65rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .author {
+    font-size: 0.6rem;
+    bottom: 0.875rem;
+    left: 1rem;
+    right: 1rem;
+  }
+
+  .avatar {
+    height: 2.25rem;
+    width: 1.75rem;
+  }
+
+  .controls {
+    bottom: 3.5rem;
+    gap: 0.5rem;
+  }
+
+  .controlButton {
+    height: 1.375rem;
+    width: 1.375rem;
+    font-size: 0.85rem;
   }
 }

@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { useId, useState } from "react";
 import styles from "../styles/UseCaseCards.module.css";
 
 const useCases = [
@@ -20,12 +20,12 @@ const useCases = [
   {
     icon: "🚌",
     title: "Commuters",
-    description: "Chat on the go without worrying about data"
+    description: "Stay connected on the move, no tracking, no data worries"
   },
   {
     icon: "🎪",
     title: "Events",
-    description: "Coordinate festivals and gatherings, no ads interrupting"
+    description: "Coordinate gatherings privately, your conversations stay yours"
   },
   {
     icon: "🏭",
@@ -111,19 +111,91 @@ function Grid({ pattern, size = 20 }) {
 }
 
 export default function UseCaseCards() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % useCases.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + useCases.length) % useCases.length);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentSlide(index);
+  };
+
   return (
-    <div className={styles.container}>
-      {useCases.map((useCase, index) => (
-        <div
-          key={useCase.title}
-          className={`${styles.card} ${index === useCases.length - 1 ? styles.cardAfrica : ''}`}
-        >
-          <Grid size={20} />
-          <div className={styles.icon}>{useCase.icon}</div>
-          <h3 className={styles.title}>{useCase.title}</h3>
-          <p className={styles.description}>{useCase.description}</p>
+    <>
+      {/* Desktop Grid View */}
+      <div className={styles.container}>
+        {useCases.map((useCase, index) => (
+          <div
+            key={useCase.title}
+            className={`${styles.card} ${index === useCases.length - 1 ? styles.cardAfrica : ''}`}
+          >
+            <Grid size={20} />
+            <div className={styles.icon}>{useCase.icon}</div>
+            <h3 className={styles.title}>{useCase.title}</h3>
+            <p className={styles.description}>{useCase.description}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Mobile Carousel View */}
+      <div className={styles.carouselContainer}>
+        <div className={styles.carouselWrapper}>
+          <div 
+            className={styles.carouselTrack}
+            style={{ 
+              transform: `translateX(calc(-${currentSlide * 100}% - ${currentSlide * 2}rem))`,
+              width: `calc(${useCases.length * 100}% + ${useCases.length * 2}rem)`
+            }}
+          >
+            {useCases.map((useCase, index) => (
+              <div
+                key={useCase.title}
+                className={`${styles.carouselCard} ${index === useCases.length - 1 ? styles.cardAfrica : ''}`}
+              >
+                <Grid size={20} />
+                <div className={styles.icon}>{useCase.icon}</div>
+                <h3 className={styles.title}>{useCase.title}</h3>
+                <p className={styles.description}>{useCase.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
-      ))}
-    </div>
+
+        {/* Navigation Controls */}
+        <div className={styles.carouselControls}>
+          <button 
+            onClick={prevSlide} 
+            className={styles.carouselArrow}
+            aria-label="Previous slide"
+          >
+            ←
+          </button>
+          
+          <div className={styles.carouselDots}>
+            {useCases.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => goToSlide(index)}
+                className={`${styles.dot} ${index === currentSlide ? styles.dotActive : ''}`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
+
+          <button 
+            onClick={nextSlide} 
+            className={styles.carouselArrow}
+            aria-label="Next slide"
+          >
+            →
+          </button>
+        </div>
+      </div>
+    </>
   );
 }

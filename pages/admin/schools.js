@@ -13,8 +13,7 @@ export default function SchoolsAdmin() {
     contactName: '',
     contactPhone: '',
     contactEmail: '',
-    address: '',
-    studentCount: 0
+    address: ''
   });
 
   useEffect(() => {
@@ -59,8 +58,7 @@ export default function SchoolsAdmin() {
           contactName: '',
           contactPhone: '',
           contactEmail: '',
-          address: '',
-          studentCount: 0
+          address: ''
         });
         fetchSchools();
       } else {
@@ -212,16 +210,6 @@ export default function SchoolsAdmin() {
                       onChange={(e) => setNewSchool({...newSchool, address: e.target.value})}
                       placeholder="123 School Street, City"
                       rows="2"
-                    />
-                  </div>
-
-                  <div className={styles.formGroup}>
-                    <label>Estimated Student Count</label>
-                    <input
-                      type="number"
-                      value={newSchool.studentCount}
-                      onChange={(e) => setNewSchool({...newSchool, studentCount: parseInt(e.target.value) || 0})}
-                      placeholder="200"
                     />
                   </div>
 

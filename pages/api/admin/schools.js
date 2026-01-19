@@ -14,7 +14,7 @@ export default async function handler(req, res) {
   }
 
   if (req.method === 'GET') {
-    // List all schools
+    // List all schools with real-time student counts
     try {
       const { data: schools, error } = await supabase
         .from('schools')
@@ -23,7 +23,22 @@ export default async function handler(req, res) {
 
       if (error) throw error;
 
-      return res.status(200).json({ schools });
+      // Fetch real student counts for each school
+      const schoolsWithCounts = await Promise.all(
+        schools.map(async (school) => {
+          const { count: studentCount } = await supabase
+            .from('students')
+            .select('*', { count: 'exact', head: true })
+            .eq('school_id', school.id);
+
+          return {
+            ...school,
+            student_count: studentCount || 0
+          };
+        })
+      );
+
+      return res.status(200).json({ schools: schoolsWithCounts });
     } catch (error) {
       console.error('Error fetching schools:', error);
       return res.status(500).json({ error: error.message });
@@ -33,7 +48,7 @@ export default async function handler(req, res) {
   if (req.method === 'POST') {
     // Create new school
     try {
-      const { name, contactName, contactPhone, contactEmail, address, studentCount } = req.body;
+      const { name, contactName, contactPhone, contactEmail, address } = req.body;
 
       console.log('=== CREATE SCHOOL REQUEST ===');
       console.log('Body:', req.body);
@@ -68,7 +83,7 @@ export default async function handler(req, res) {
           contact_phone: contactPhone,
           contact_email: contactEmail,
           address,
-          student_count: studentCount || 0,
+          student_count: 0,
           status: 'active'
         }])
         .select()

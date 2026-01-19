@@ -66,6 +66,21 @@
   border-color: #667eea;
 }
 
+.formGroup select {
+  padding: 0.8rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background: white;
+  cursor: pointer;
+}
+
+.formGroup select:focus {
+  outline: none;
+  border-color: #667eea;
+}
+
 .error {
   background: #ffebee;
   color: #c62828;
@@ -521,6 +536,133 @@
   .downloadButtons {
     flex-direction: column;
   }
+}
+
+/* Schools Management */
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  color: #1a1a2e;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.card h3 {
+  color: #1a1a2e;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.tableContainer {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table thead {
+  background: #f8f9fa;
+}
+
+.table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #1a1a2e;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.table td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.table tbody tr:hover {
+  background: #f8f9fa;
+}
+
+.code {
+  font-family: 'Courier New', monospace;
+  background: #f0f0f0;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+  color: #667eea;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge.active {
+  background: #e8f5e9;
+  color: #388e3c;
+}
+
+.badge.inactive {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.badge.trial {
+  background: #fff3e0;
+  color: #e65100;
+}
+
+.actionButton {
+  padding: 0.5rem 1rem;
+  background: #667eea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.actionButton:hover {
+  background: #764ba2;
+  transform: translateY(-1px);
+}
+
+.primaryButton {
+  padding: 0.8rem 1.5rem;
+  background: #00ff88;
+  color: #1a1a2e;
+  border: none;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0,255,136,0.3);
+}
+
+.section {
+  margin-bottom: 2rem;
 }
 
 /* Enhanced Batch Management */

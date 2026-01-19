@@ -1,9 +1,18 @@
 // Export school configuration as JSON for APK embedding
 import { createClient } from '@supabase/supabase-js';
 
+console.log('Supabase URL:', process.env.NEXT_PUBLIC_SUPABASE_URL);
+console.log('Service key exists:', !!process.env.SUPABASE_SERVICE_KEY);
+
 const supabase = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
+  process.env.SUPABASE_SERVICE_KEY,
+  {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false
+    }
+  }
 );
 
 export default async function handler(req, res) {
@@ -14,16 +23,21 @@ export default async function handler(req, res) {
   const { id } = req.query;
 
   try {
+    console.log('Export config for school ID:', id);
+    
     // Fetch school
-    const { data: school, error: schoolError } = await supabase
+    const { data: schools, error: schoolError } = await supabase
       .from('schools')
       .select('*')
-      .eq('id', id)
-      .single();
+      .eq('id', id);
 
-    if (schoolError || !school) {
-      return res.status(404).json({ error: 'School not found' });
+    console.log('School query result:', { schools, error: schoolError });
+
+    if (schoolError || !schools || schools.length === 0) {
+      return res.status(404).json({ error: 'School not found', details: schoolError?.message });
     }
+    
+    const school = schools[0];
 
     // Fetch grades with encryption keys
     const { data: grades, error: gradesError } = await supabase
@@ -36,16 +50,6 @@ export default async function handler(req, res) {
       return res.status(500).json({ error: 'Error fetching grades' });
     }
 
-    // Fetch teachers
-    const { data: teachers, error: teachersError } = await supabase
-      .from('teachers')
-      .select('*')
-      .eq('school_id', id);
-
-    if (teachersError) {
-      return res.status(500).json({ error: 'Error fetching teachers' });
-    }
-
     // Fetch students
     const { data: students, error: studentsError } = await supabase
       .from('students')
@@ -53,7 +57,19 @@ export default async function handler(req, res) {
       .eq('school_id', id);
 
     if (studentsError) {
-      return res.status(500).json({ error: 'Error fetching students' });
+      console.error('Students error:', studentsError);
+      return res.status(500).json({ error: 'Error fetching students', details: studentsError.message });
+    }
+
+    // Fetch teachers
+    const { data: teachers, error: teachersError } = await supabase
+      .from('teachers')
+      .select('*')
+      .eq('school_id', id);
+
+    if (teachersError) {
+      console.error('Teachers error:', teachersError);
+      return res.status(500).json({ error: 'Error fetching teachers', details: teachersError.message });
     }
 
     // Fetch parents with their students
@@ -107,14 +123,14 @@ export default async function handler(req, res) {
         name: teacher.name,
         phone: teacher.phone,
         email: teacher.email,
-        gradeId: teacher.class_id, // This will be the grade ID if using simplified structure
+        gradeId: teacher.grade_id || teacher.class_id,
         role: teacher.role
       })),
       students: (students || []).map(student => ({
         id: student.id,
         name: student.name,
         idNumber: student.id_number,
-        gradeId: student.class_id // This will be the grade ID if using simplified structure
+        gradeId: student.grade_id || student.class_id
       })),
       parents: (parents || []).map(parent => ({
         id: parent.id,

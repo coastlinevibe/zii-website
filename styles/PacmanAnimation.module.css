@@ -173,30 +173,82 @@
   }
 }
 
-@media (max-width: 768px) {
+/* Tablet View */
+@media (max-width: 1024px) and (min-width: 769px) {
   .container {
-    height: 60px;
+    height: 65px;
+    margin-top: 90px;
+    margin-bottom: -110px;
   }
 
   .track {
-    height: 60px;
-    border-top-width: 5px;
-    border-bottom-width: 5px;
+    height: 65px;
   }
 
   .word {
-    font-size: 1rem;
+    font-size: 1.2rem;
+  }
+
+  .pacman {
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .container {
+    height: 55px;
+    margin-top: 70px;
+    margin-bottom: -90px;
+    padding: 2rem 0;
+  }
+
+  .track {
+    height: 55px;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
+  }
+
+  .word {
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
   }
   
   .pacman {
-    width: 35px;
-    height: 35px;
+    width: 32px;
+    height: 32px;
   }
   
   .pacmanTop,
   .pacmanBottom {
-    border-left-width: 17px;
-    border-top-width: 17px;
-    border-bottom-width: 17px;
+    border-left-width: 16px;
+    border-top-width: 16px;
+    border-bottom-width: 16px;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .container {
+    height: 50px;
+    margin-top: 60px;
+    margin-bottom: -80px;
+  }
+
+  .track {
+    height: 50px;
+    border-top-width: 3px;
+    border-bottom-width: 3px;
+  }
+
+  .word {
+    font-size: 0.8rem;
+    letter-spacing: 0.3px;
+  }
+  
+  .pacman {
+    width: 28px;
+    height: 28px;
   }
 }

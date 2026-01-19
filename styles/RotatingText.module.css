@@ -95,25 +95,87 @@
   51%, 100% { opacity: 0; }
 }
 
-@media (max-width: 768px) {
+/* Tablet View */
+@media (max-width: 1024px) and (min-width: 769px) {
   .container {
-    font-size: 1.4rem;
-    gap: 0.5rem;
+    font-size: 2rem;
+    gap: 0.6rem;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
   
   .coin {
-    width: 50px;
-    height: 50px;
-    font-size: 1.1rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
   }
   
   .gooi {
-    font-size: 2.2rem;
-    letter-spacing: 2px;
+    font-size: 3rem;
+    letter-spacing: 3px;
   }
   
   .highlight {
-    min-width: 150px;
-    padding: 0.2rem 0.6rem;
+    min-width: 220px;
+    padding: 0.25rem 0.8rem;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+  .container {
+    font-size: 1.2rem;
+    gap: 0.4rem;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+    padding: 0 1rem;
+    white-space: normal;
+    max-width: 100%;
+    overflow: hidden;
+  }
+  
+  .coin {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+  }
+  
+  .gooi {
+    font-size: 2rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .highlight {
+    min-width: 140px;
+    padding: 0.2rem 0.5rem;
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .container {
+    font-size: 1rem;
+    gap: 0.3rem;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  .coin {
+    width: 38px;
+    height: 38px;
+    font-size: 0.9rem;
+  }
+  
+  .gooi {
+    font-size: 1.6rem;
+    letter-spacing: 1px;
+  }
+  
+  .highlight {
+    min-width: 120px;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.95rem;
   }
 }

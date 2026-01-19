@@ -64,6 +64,10 @@ export default function SchoolSetup() {
     grades: 0
   });
 
+  // APK Builds
+  const [apkBuilds, setApkBuilds] = useState([]);
+  const [latestApk, setLatestApk] = useState(null);
+
   useEffect(() => {
     if (!id) return;
     
@@ -140,6 +144,11 @@ export default function SchoolSetup() {
       if (timetableData.timetable) {
         setTimetable(timetableData.timetable);
       }
+
+      // Fetch APK builds
+      const apkRes = await fetch(`/api/admin/schools/${id}/apk`);
+      const apkData = await apkRes.json();
+      setLatestApk(apkData.apk);
       
     } catch (error) {
       console.error('Error fetching school data:', error);
@@ -445,7 +454,7 @@ export default function SchoolSetup() {
   };
 
   const handleGenerateAPK = async () => {
-    if (!confirm('Generate custom APK for this school? This may take a few minutes.')) {
+    if (!confirm('Create APK build record for this school?')) {
       return;
     }
     
@@ -457,13 +466,14 @@ export default function SchoolSetup() {
       const data = await response.json();
       
       if (response.ok) {
-        alert(`APK generation started! Build ID: ${data.buildId}`);
+        alert(`APK Build Record Created!\n\nSchool Code: ${data.schoolCode}\nVersion: ${data.version}\n\nTo build the APK, run:\n\ncd zii-school-app-NEW\n.\\build-for-school.ps1 -SchoolId "${id}"`);
+        fetchSchoolData(); // Refresh to show new build record
       } else {
         alert(`Error: ${data.error}`);
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error generating APK');
+      alert('Error creating APK record');
     }
   };
 
@@ -522,9 +532,30 @@ export default function SchoolSetup() {
               <h1>{school.name}</h1>
               <p className={styles.subtitle}>Code: <code>{school.code}</code></p>
             </div>
-            <button onClick={handleGenerateAPK} className={styles.generateButton}>
-              🚀 Generate APK
-            </button>
+            <div style={{display: 'flex', gap: '1rem'}}>
+              <button onClick={handleGenerateAPK} className={styles.generateButton}>
+                🚀 Generate APK
+              </button>
+              {latestApk && latestApk.download_url ? (
+                <a 
+                  href={latestApk.download_url}
+                  download={`${school.code}.apk`}
+                  className={styles.generateButton}
+                  style={{textDecoration: 'none', display: 'inline-block'}}
+                >
+                  📥 Latest Version
+                </a>
+              ) : (
+                <button 
+                  className={styles.generateButton}
+                  style={{opacity: 0.5, cursor: 'not-allowed'}}
+                  disabled
+                  title="No APK available yet"
+                >
+                  📥 Latest Version
+                </button>
+              )}
+            </div>
           </div>
         </header>
 
@@ -600,10 +631,10 @@ export default function SchoolSetup() {
               ⏰ Timetable
             </button>
             <button 
-              className={activeTab === 'codes' ? styles.active : ''}
-              onClick={() => setActiveTab('codes')}
+              className={activeTab === 'apks' ? styles.active : ''}
+              onClick={() => setActiveTab('apks')}
             >
-              🎫 Invite Codes
+              📱 APK Builds
             </button>
           </nav>
 
@@ -1201,10 +1232,67 @@ Bob Jones,0822222222,bob@email.com,Sarah Jones`}
               </div>
             )}
 
-            {activeTab === 'codes' && (
-              <div className={styles.comingSoon}>
-                <h2>Invite Codes</h2>
-                <p>Coming soon: Generate and manage invite codes for teachers and parents.</p>
+            {activeTab === 'apks' && (
+              <div>
+                <div className={styles.form}>
+                  <h2>APK Build History</h2>
+                  <p style={{color: '#666', marginBottom: '1.5rem'}}>
+                    Track all APK builds for this school. Use the "Generate APK" button in the header to create a new build record.
+                  </p>
+
+                  {apkBuilds.length === 0 ? (
+                    <div className={styles.emptyState}>
+                      <p>No APK builds yet. Click "Generate APK" in the header to create your first build.</p>
+                    </div>
+                  ) : (
+                    <div className={styles.tableContainer}>
+                      <table className={styles.table}>
+                        <thead>
+                          <tr>
+                            <th>Version</th>
+                            <th>Build Number</th>
+                            <th>Created</th>
+                            <th>Download URL</th>
+                            <th>Status</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {apkBuilds.map(apk => (
+                            <tr key={apk.id}>
+                              <td><code>{apk.version}</code></td>
+                              <td>{apk.build_number}</td>
+                              <td>{new Date(apk.created_at).toLocaleString()}</td>
+                              <td>
+                                {apk.download_url ? (
+                                  <a href={apk.download_url} target="_blank" rel="noopener noreferrer" className={styles.actionButton}>
+                                    Download
+                                  </a>
+                                ) : (
+                                  <span style={{color: '#999'}}>Not uploaded</span>
+                                )}
+                              </td>
+                              <td>
+                                <span className={`${styles.badge} ${apk.download_url ? styles.active : styles.pending}`}>
+                                  {apk.download_url ? 'Ready' : 'Pending'}
+                                </span>
+                              </td>
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  )}
+
+                  <div style={{marginTop: '2rem', padding: '1rem', background: '#e7f3ff', borderRadius: '8px', color: '#004085'}}>
+                    <strong>Build Instructions:</strong>
+                    <ol style={{marginTop: '0.5rem', marginBottom: 0, paddingLeft: '1.5rem'}}>
+                      <li>Click "Generate APK" button to create a build record</li>
+                      <li>Run the PowerShell command: <code style={{background: '#fff', padding: '0.2rem 0.5rem', borderRadius: '4px'}}>cd zii-school-app-NEW; .\build-for-school.ps1 -SchoolId "{id}"</code></li>
+                      <li>The APK will be built as <code style={{background: '#fff', padding: '0.2rem 0.5rem', borderRadius: '4px'}}>{school.code}.apk</code></li>
+                      <li>Upload the APK to your hosting service and update the download_url in the database</li>
+                    </ol>
+                  </div>
+                </div>
               </div>
             )}
           </div>

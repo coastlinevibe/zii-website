@@ -73,12 +73,11 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
       
       // Responsive font size
       let fontSize = Math.min(canvas.width / 10, 105);
-      if (canvas.width < 768) {
+      const isMobile = canvas.width < 768;
+      
+      if (isMobile) {
         fontSize = Math.min(canvas.width / 8, 35);
       }
-      
-      const textX = canvas.width / 2;
-      const textY = canvas.width < 768 ? (canvas.height / 2) - 50 : canvas.height / 2;
 
       ctx.font = `900 ${fontSize}px "Arial Black", Gadget, sans-serif`;
       ctx.textAlign = 'center';
@@ -91,13 +90,28 @@ const ParticleText = ({ text = "No Data? No Problem!", className = "" }) => {
       gradient.addColorStop(1, "#BFFF00");
 
       ctx.fillStyle = gradient;
-      ctx.fillText(text, textX, textY);
+      
+      const textX = canvas.width / 2;
+      
+      // Split text into 2 lines for mobile
+      if (isMobile) {
+        const line1 = "No Data?";
+        const line2 = "No Problem!";
+        const lineHeight = fontSize * 1.2;
+        const startY = (canvas.height / 2) - (lineHeight / 2) - 80; // Moved up by 80px
+        
+        ctx.fillText(line1, textX, startY);
+        ctx.fillText(line2, textX, startY + lineHeight);
+      } else {
+        const textY = canvas.height / 2;
+        ctx.fillText(text, textX, textY);
+      }
 
       const textCoordinates = ctx.getImageData(0, 0, canvas.width, canvas.height);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       // Particle density - adjust for performance
-      const gap = canvas.width < 768 ? 3 : 4;
+      const gap = isMobile ? 3 : 4;
 
       for (let y = 0; y < textCoordinates.height; y += gap) {
         for (let x = 0; x < textCoordinates.width; x += gap) {

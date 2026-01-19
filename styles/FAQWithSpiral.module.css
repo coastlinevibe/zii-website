@@ -380,6 +380,25 @@
   border-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Tablet View */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .container {
+    padding: 2.5rem 0;
+  }
+
+  .content {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .faqTitle {
+    font-size: 0.95rem;
+  }
+}
+
 /* Mobile Responsive */
 @media (max-width: 768px) {
   .container {
@@ -406,12 +425,17 @@
   .headerContent {
     flex-direction: column;
     align-items: flex-start;
+    gap: 1rem;
   }
 
   .expandButton {
     width: 100%;
     padding: 0.625rem 1rem;
     font-size: 0.8125rem;
+  }
+
+  .searchWrapper {
+    width: 100%;
   }
 
   .searchInput {
@@ -426,9 +450,49 @@
     font-size: 0.9375rem;
   }
 
+  .faqAnswerContent p {
+    font-size: 0.8rem;
+  }
+
   .controlPanel {
     left: 1rem;
     right: 1rem;
     width: auto;
+  }
+}
+
+/* Small Mobile View */
+@media (max-width: 480px) {
+  .content {
+    padding: 1.25rem 0.75rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 0.75rem;
+  }
+
+  .faqItem {
+    padding: 0.75rem;
+  }
+
+  .faqTitle {
+    font-size: 0.875rem;
+  }
+
+  .faqIndex {
+    font-size: 0.7rem;
+  }
+
+  .faqAnswerContent p {
+    font-size: 0.75rem;
+  }
+
+  .expandButton {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.75rem;
   }
 }

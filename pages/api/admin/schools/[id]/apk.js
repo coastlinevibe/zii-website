@@ -8,56 +8,95 @@ const supabase = createClient(
 export default async function handler(req, res) {
   const { id } = req.query;
 
-  if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Method not allowed' });
-  }
+  if (req.method === 'POST') {
+    // Create or update APK record (only one per school)
+    try {
+      // Get school details
+      const { data: schools, error: schoolError } = await supabase
+        .from('schools')
+        .select('*')
+        .eq('id', id);
 
-  try {
-    // Get school details
-    const { data: school, error: schoolError } = await supabase
-      .from('schools')
-      .select('*')
-      .eq('id', id)
-      .single();
+      if (schoolError || !schools || schools.length === 0) {
+        return res.status(404).json({ error: 'School not found' });
+      }
 
-    if (schoolError) throw schoolError;
+      const school = schools[0];
+      const version = '0.4.0-alpha';
+      const buildNumber = Date.now();
 
-    // TODO: Trigger GitHub Actions workflow to build APK
-    // For now, just create a record
-    
-    const buildNumber = Date.now();
-    const version = '2.5.1-school';
+      // Check if APK record exists
+      const { data: existing } = await supabase
+        .from('school_apks')
+        .select('*')
+        .eq('school_id', id)
+        .single();
 
-    const { data: apk, error } = await supabase
-      .from('school_apks')
-      .insert([{
-        school_id: id,
+      let apk;
+      if (existing) {
+        // Update existing record
+        const { data, error } = await supabase
+          .from('school_apks')
+          .update({
+            version,
+            build_number: buildNumber,
+            download_url: null,
+            updated_at: new Date().toISOString()
+          })
+          .eq('school_id', id)
+          .select()
+          .single();
+
+        if (error) throw error;
+        apk = data;
+      } else {
+        // Create new record
+        const { data, error } = await supabase
+          .from('school_apks')
+          .insert([{
+            school_id: id,
+            version,
+            build_number: buildNumber,
+            download_url: null
+          }])
+          .select()
+          .single();
+
+        if (error) throw error;
+        apk = data;
+      }
+
+      return res.status(200).json({ 
+        success: true,
+        buildId: apk.id,
+        schoolCode: school.code,
         version,
-        build_number: buildNumber,
-        download_url: null // Will be updated when build completes
-      }])
-      .select()
-      .single();
+        instructions: `Run this command in PowerShell:\n\ncd zii-school-app-NEW\n.\\build-for-school.ps1 -SchoolId "${id}"`
+      });
 
-    if (error) throw error;
-
-    // TODO: Actual implementation would:
-    // 1. Trigger GitHub Actions workflow with school config
-    // 2. Pass school name, code, logo, colors as parameters
-    // 3. Build APK with embedded school config
-    // 4. Upload APK to storage (S3/Cloudflare R2)
-    // 5. Update download_url in database
-    // 6. Send notification when ready
-
-    return res.status(200).json({ 
-      success: true,
-      buildId: apk.id,
-      message: 'APK generation started. This feature is coming soon.',
-      note: 'For now, use the standard Zii APK and configure via school code.'
-    });
-
-  } catch (error) {
-    console.error('Error generating APK:', error);
-    return res.status(500).json({ error: error.message });
+    } catch (error) {
+      console.error('Error creating APK record:', error);
+      return res.status(500).json({ error: error.message });
+    }
   }
+
+  if (req.method === 'GET') {
+    // Get latest APK for this school
+    try {
+      const { data: apk, error } = await supabase
+        .from('school_apks')
+        .select('*')
+        .eq('school_id', id)
+        .single();
+
+      if (error && error.code !== 'PGRST116') throw error;
+
+      return res.status(200).json({ apk: apk || null });
+    } catch (error) {
+      console.error('Error fetching APK:', error);
+      return res.status(500).json({ error: error.message });
+    }
+  }
+
+  return res.status(405).json({ error: 'Method not allowed' });
 }
