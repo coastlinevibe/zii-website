@@ -1,6 +1,55 @@
 // Admin API: Generate activation codes
-const { generateBatch } = require('../../../tools/code-generator');
 import { storeBatch } from '../../../lib/supabase';
+
+// Import crypto for code generation (inline the generateBatch function)
+import crypto from 'crypto';
+
+const SECRET_KEY = process.env.CODE_SECRET_KEY || 'zii-chat-secret-2024';
+
+function encodeDuration(days, batchId) {
+    let daysHex;
+    if (days >= 365) {
+        daysHex = 'FF';
+    } else if (days > 255) {
+        daysHex = 'FE';
+    } else {
+        daysHex = days.toString(16).padStart(2, '0').toUpperCase();
+    }
+    const batchHex = (batchId % 256).toString(16).padStart(2, '0').toUpperCase();
+    return daysHex + batchHex;
+}
+
+function calculateChecksum(data) {
+    return crypto
+        .createHash('sha256')
+        .update(data + SECRET_KEY)
+        .digest('hex')
+        .substring(0, 4)
+        .toUpperCase();
+}
+
+function generateCode(durationDays, batchId) {
+    const prefix = crypto.randomBytes(2).toString('hex').toUpperCase();
+    const encoded = encodeDuration(durationDays, batchId);
+    const uniqueId = crypto.randomBytes(2).toString('hex').toUpperCase();
+    const checksum = calculateChecksum(prefix + encoded + uniqueId);
+    return `${prefix}-${encoded}-${uniqueId}-${checksum}`;
+}
+
+function generateBatch(count, durationDays, batchId) {
+    const codes = [];
+    for (let i = 0; i < count; i++) {
+        const code = generateCode(durationDays, batchId);
+        codes.push({
+            code,
+            durationDays,
+            batchId,
+            generated: new Date().toISOString(),
+            used: false
+        });
+    }
+    return codes;
+}
 
 export default async function handler(req, res) {
   // Only allow POST
