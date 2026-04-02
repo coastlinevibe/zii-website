@@ -38,7 +38,7 @@ export default function RotatingText() {
   return (
     <div className={styles.container}>
       <span className={styles.coinWrapper}>
-        <span className={styles.coin}>50c</span>
+        <span className={styles.coin}>R1</span>
       </span>
       <span className={styles.staticText}>a day keeps you chatting Mzansi way,</span>
       <span className={styles.highlight}>
