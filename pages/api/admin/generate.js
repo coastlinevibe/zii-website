@@ -45,7 +45,7 @@ function generateBatch(count, durationDays, batchId) {
             durationDays,
             batchId,
             generated: new Date().toISOString(),
-            used: false
+            status: 'available'
         });
     }
     return codes;
