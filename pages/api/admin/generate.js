@@ -31,10 +31,10 @@ export default async function handler(req, res) {
     });
   }
 
-  const validDurations = [10, 30, 90, 365];
+  const validDurations = [5, 30, 90, 365];
   if (!validDurations.includes(durationDays)) {
     return res.status(400).json({
-      error: 'Invalid duration. Must be 10, 30, 90, or 365 days'
+      error: 'Invalid duration. Must be 5, 30, 90, or 365 days'
     });
   }
 

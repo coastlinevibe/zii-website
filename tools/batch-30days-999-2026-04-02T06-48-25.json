@@ -1,0 +1,43 @@
+{
+  "generated": "2026-04-02T06:48:25.982Z",
+  "count": 5,
+  "durationDays": 30,
+  "batchId": 999,
+  "codes": [
+    {
+      "code": "4BB2-1EE7-D891-2415",
+      "durationDays": 30,
+      "batchId": 999,
+      "generated": "2026-04-02T06:48:25.978Z",
+      "used": false
+    },
+    {
+      "code": "3750-1EE7-0975-8C4F",
+      "durationDays": 30,
+      "batchId": 999,
+      "generated": "2026-04-02T06:48:25.980Z",
+      "used": false
+    },
+    {
+      "code": "3D1F-1EE7-D943-2157",
+      "durationDays": 30,
+      "batchId": 999,
+      "generated": "2026-04-02T06:48:25.980Z",
+      "used": false
+    },
+    {
+      "code": "9AFE-1EE7-15A1-1893",
+      "durationDays": 30,
+      "batchId": 999,
+      "generated": "2026-04-02T06:48:25.981Z",
+      "used": false
+    },
+    {
+      "code": "2EF3-1EE7-6658-82CC",
+      "durationDays": 30,
+      "batchId": 999,
+      "generated": "2026-04-02T06:48:25.981Z",
+      "used": false
+    }
+  ]
+}
