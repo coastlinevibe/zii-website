@@ -110,10 +110,10 @@ function GenerateTab() {
   const [result, setResult] = useState(null);
 
   const tiers = [
-    { days: '10', price: 'R5', label: '10 Days' },
-    { days: '30', price: 'R15', label: '30 Days' },
-    { days: '90', price: 'R50', label: '90 Days' },
-    { days: '365', price: 'R150', label: '365 Days' }
+    { days: '5', price: 'R5', label: '5 Days', perDay: 'R1/day' },
+    { days: '30', price: 'R30', label: '30 Days', perDay: 'R1/day' },
+    { days: '90', price: 'R90', label: '90 Days', perDay: 'R1/day' },
+    { days: '365', price: 'R365', label: '365 Days', perDay: 'R1/day' }
   ];
 
   const handleGenerate = async () => {
@@ -534,10 +534,10 @@ function AnalyticsTab() {
         <h3>Revenue by Tier</h3>
         <div className={styles.tierGrid}>
           {[
-            { days: 10, price: 5, label: '10 Days' },
-            { days: 30, price: 15, label: '30 Days' },
-            { days: 90, price: 50, label: '90 Days' },
-            { days: 365, price: 150, label: '365 Days' }
+            { days: 5, price: 5, label: '5 Days' },
+            { days: 30, price: 30, label: '30 Days' },
+            { days: 90, price: 90, label: '90 Days' },
+            { days: 365, price: 365, label: '365 Days' }
           ].map(tier => {
             const codes = stats?.codesByTier?.[tier.days] || 0;
             const used = stats?.usedByTier?.[tier.days] || 0;

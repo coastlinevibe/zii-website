@@ -192,11 +192,11 @@ Examples:
   node code-generator.js validate ABCD-1E01-5678-9ABC
   node code-generator.js test                   # Run tests
 
-Pricing Tiers:
-  10 days  = R5
-  30 days  = R15
-  90 days  = R50
-  365 days = R150
+Pricing Tiers (R1 per day):
+  5 days   = R5
+  30 days  = R30
+  90 days  = R90
+  365 days = R365
         `);
         return;
     }
@@ -268,10 +268,10 @@ Pricing Tiers:
             // Test 3: All tiers
             console.log('\nTest 3: Generate codes for all tiers');
             const tiers = [
-                { days: 10, price: 'R5' },
-                { days: 30, price: 'R15' },
-                { days: 90, price: 'R50' },
-                { days: 365, price: 'R150' }
+                { days: 5, price: 'R5' },
+                { days: 30, price: 'R30' },
+                { days: 90, price: 'R90' },
+                { days: 365, price: 'R365' }
             ];
             
             tiers.forEach(tier => {
