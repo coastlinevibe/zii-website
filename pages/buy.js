@@ -9,10 +9,10 @@ export default function Buy() {
   const [activationCode, setActivationCode] = useState(null);
 
   const tiers = {
-    '10': { days: 10, price: 5, label: '10 Days' },
-    '30': { days: 30, price: 15, label: '30 Days' },
-    '90': { days: 90, price: 50, label: '90 Days' },
-    '365': { days: 365, price: 150, label: '365 Days' }
+    '5': { days: 5, price: 5, label: '5 Days', perDay: 'R1/day' },
+    '30': { days: 30, price: 30, label: '30 Days', perDay: 'R1/day' },
+    '90': { days: 90, price: 90, label: '90 Days', perDay: 'R1/day' },
+    '365': { days: 365, price: 365, label: '365 Days', perDay: 'R1/day' }
   };
 
   const handlePurchase = async () => {
@@ -53,7 +53,7 @@ export default function Buy() {
                   >
                     <h3>{tier.label}</h3>
                     <div className={styles.price}>R{tier.price}</div>
-                    <p>{tier.days} days access</p>
+                    <p>{tier.perDay} • {tier.days} days</p>
                   </div>
                 ))}
               </div>
@@ -61,11 +61,12 @@ export default function Buy() {
               <div className={styles.paymentSection}>
                 <h2>Payment Method</h2>
                 <p className={styles.note}>
-                  For R15+ purchases, use FastPay online payment.<br/>
+                  Simple pricing: R1 per day!<br/>
+                  For R30+ purchases, use FastPay online payment.<br/>
                   For R5 or other payment methods, contact us on WhatsApp.
                 </p>
                 
-                {selectedTier === '10' ? (
+                {selectedTier === '5' ? (
                   <a 
                     href="https://wa.me/YOUR_NUMBER?text=I want to buy R5 activation code" 
                     className={styles.whatsappButton}

@@ -23,7 +23,7 @@
 ### Test 2: Generate Codes
 - [ ] Click "Generate Codes" tab
 - [ ] Enter quantity: `10`
-- [ ] Select tier: `30 Days (R15)`
+- [ ] Select tier: `30 Days (R30)`
 - [ ] Enter batch ID: `1`
 - [ ] Click "Generate 10 Codes"
 - [ ] See success message
@@ -34,7 +34,7 @@
 - [ ] Click "Batches" tab
 - [ ] See batch #1 listed
 - [ ] Stats show: Total=10, Used=0, Available=10, Revoked=0
-- [ ] Revenue shows: Earned=R0, Potential=R150
+- [ ] Revenue shows: Earned=R0, Potential=R300
 - [ ] Click "View Codes" button
 - [ ] See list of 10 codes
 - [ ] All codes show status "available"
@@ -50,7 +50,7 @@
 ### Test 5: Analytics
 - [ ] Click "Analytics" tab
 - [ ] See stats: Total Codes=10, Activated=0, Available=9, Revoked=1
-- [ ] Revenue Overview shows: Total=R150, Earned=R0, Potential=R135
+- [ ] Revenue Overview shows: Total=R300, Earned=R0, Potential=R270
 - [ ] Revenue by Tier shows 30 Days tier with 10 codes
 - [ ] Recent Activations section is empty (no activations yet)
 

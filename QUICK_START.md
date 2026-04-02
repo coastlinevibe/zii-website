@@ -20,7 +20,7 @@
 ### Step 3: Generate Your First Codes (2 minutes)
 1. Click "Generate Codes" tab
 2. Enter quantity: `10`
-3. Select tier: "30 Days (R15)"
+3. Select tier: "30 Days (R30)"
 4. Enter batch ID: `1`
 5. Click "Generate 10 Codes"
 6. Download the CSV file
@@ -103,8 +103,11 @@ Open the HTML file in browser and print to PDF!
 ## 💡 Quick Tips
 
 ### Pricing Tiers
-- **R5** = 10 days (trial)
-- **R15** = 30 days (monthly)
+**Simple: R1 per day**
+- **R5** = 5 days (trial)
+- **R30** = 30 days (monthly)
+- **R90** = 90 days (quarterly)
+- **R365** = 365 days (annual)
 - **R50** = 90 days (quarterly)
 - **R150** = 365 days (annual)
 

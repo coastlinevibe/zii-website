@@ -16,8 +16,8 @@ cd zii-website/tools
 # Generate 100 codes for 30 days, batch 1
 node code-generator.js generate 100 30 1
 
-# Generate 50 codes for 10 days, batch 2
-node code-generator.js generate 50 10 2
+# Generate 50 codes for 5 days, batch 2
+node code-generator.js generate 50 5 2
 ```
 
 ### Validate Code
@@ -32,12 +32,14 @@ node code-generator.js test
 
 ## Pricing Tiers
 
-| Duration | Price | Command |
-|----------|-------|---------|
-| 10 days  | R5    | `generate 100 10 1` |
-| 30 days  | R15   | `generate 100 30 1` |
-| 90 days  | R50   | `generate 100 90 1` |
-| 365 days | R150  | `generate 100 365 1` |
+**Simple: R1 per day**
+
+| Duration | Price | Per Day | Command |
+|----------|-------|---------|---------|
+| 5 days   | R5    | R1      | `generate 100 5 1` |
+| 30 days  | R30   | R1      | `generate 100 30 1` |
+| 90 days  | R90   | R1      | `generate 100 90 1` |
+| 365 days | R365  | R1      | `generate 100 365 1` |
 
 ## Output Files
 

@@ -106,31 +106,31 @@ export default function Home() {
 
         {/* Pricing Section */}
         <section className={styles.pricing}>
-          <h2><img src="/images/rb2.png" alt="rugby" className={styles.ballIcon} /> Lekka Deals <img src="/images/sb2.png" alt="soccer" className={styles.soccerIcon} /></h2>
+          <h2><img src="/images/rb2.png" alt="rugby" className={styles.ballIcon} /> Lekka Deals - R1 a Day! <img src="/images/sb2.png" alt="soccer" className={styles.soccerIcon} /></h2>
           <div className={styles.pricingGrid}>
             <div className={styles.pricingCard}>
-              <h3>10 Days</h3>
+              <h3>5 Days</h3>
               <div className={styles.price}>R5</div>
-              <p>Online Time</p>
-              <a href="/buy?tier=10" className={styles.buyButton}>Buy Now</a>
+              <p>R1 per day</p>
+              <a href="/buy?tier=5" className={styles.buyButton}>Buy Now</a>
             </div>
             <div className={`${styles.pricingCard} ${styles.popular}`}>
               <div className={styles.badge}>Popular</div>
               <h3>30 Days</h3>
-              <div className={styles.price}>R15</div>
-              <p>Monthly access</p>
+              <div className={styles.price}>R30</div>
+              <p>R1 per day</p>
               <a href="/buy?tier=30" className={styles.buyButton}>Buy Now</a>
             </div>
             <div className={styles.pricingCard}>
               <h3>90 Days</h3>
-              <div className={styles.price}>R50</div>
-              <p>Quarterly access</p>
+              <div className={styles.price}>R90</div>
+              <p>R1 per day</p>
               <a href="/buy?tier=90" className={styles.buyButton}>Buy Now</a>
             </div>
             <div className={styles.pricingCard}>
               <h3>365 Days</h3>
-              <div className={styles.price}>R150</div>
-              <p>Full year access</p>
+              <div className={styles.price}>R365</div>
+              <p>R1 per day</p>
               <a href="/buy?tier=365" className={styles.buyButton}>Buy Now</a>
             </div>
           </div>
