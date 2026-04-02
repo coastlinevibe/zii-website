@@ -132,7 +132,13 @@ function GenerateTab() {
       });
 
       const data = await response.json();
-      setResult(data);
+      
+      // Always show result, even if there's an error in the response
+      if (!response.ok || data.error) {
+        setResult({ error: data.error || data.message || 'Failed to generate codes' });
+      } else {
+        setResult(data);
+      }
     } catch (error) {
       setResult({ error: error.message });
     } finally {
@@ -217,6 +223,18 @@ function GenerateTab() {
                   <span className={styles.statValue}>#{result.batchId}</span>
                 </div>
               </div>
+              
+              {result.preview && result.preview.length > 0 && (
+                <div className={styles.previewSection}>
+                  <h4>Preview (First 5 codes):</h4>
+                  <div className={styles.codePreview}>
+                    {result.preview.map((code, idx) => (
+                      <div key={idx} className={styles.previewCode}>{code}</div>
+                    ))}
+                  </div>
+                </div>
+              )}
+              
               <div className={styles.downloadButtons}>
                 <button onClick={() => downloadFile(result.jsonUrl, 'json')}>
                   📄 Download JSON

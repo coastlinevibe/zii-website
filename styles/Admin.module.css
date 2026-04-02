@@ -1070,3 +1070,36 @@
   background: #f3e5f5;
   color: #6a1b9a;
 }
+
+/* Code Preview Section */
+.previewSection {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 2px dashed #667eea;
+}
+
+.previewSection h4 {
+  color: #1a1a2e;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.codePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.previewCode {
+  font-family: 'Courier New', monospace;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #667eea;
+  background: white;
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  border: 2px solid #e0e0e0;
+  letter-spacing: 1px;
+}
